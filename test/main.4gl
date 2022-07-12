@@ -59,20 +59,18 @@ Function navigateCustomers()
     Input By Name lr_customer.* Attributes (Without Defaults)
       On Action first
         Call readCustomer(lr_customer, "first")
-        Display By Name lr_customer.*
         Call fillPlates( lr_customer.customer_id, la_plates )
       On Action previous
         Call readCustomer(lr_customer, "previous")
-        Display By Name lr_customer.*
         Call fillPlates( lr_customer.customer_id, la_plates )
       On Action next
         Call readCustomer(lr_customer, "next")
-        Display By Name lr_customer.*
         Call fillPlates( lr_customer.customer_id, la_plates )
       On Action last
         Call readCustomer(lr_customer, "last")
-        Display By Name lr_customer.*
         Call fillPlates( lr_customer.customer_id, la_plates )
+      On Action dummy
+        Display "Hello"
     End Input
 
     Display Array la_plates To sr_plate.*

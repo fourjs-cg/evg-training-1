@@ -6,7 +6,7 @@
   <Record name="sr_customer" uid="{f095a83f-608c-413d-a490-09af46af43fc}">
     <RecordField fieldIdRef="1" length="50" name="customer_name" sqlType="CHAR" uid="{4dc8be80-2ed6-42e0-aab8-c2e015dc68b6}"/>
     <RecordField fieldIdRef="5" length="50" name="customer_id" sqlType="CHAR" uid="{1dfc5a00-a39a-4c41-9632-8c55d08537fe}"/>
-    <RecordField fieldIdRef="6" length="50" name="join_date" sqlType="CHAR" uid="{a8c2eab6-ef90-4163-aae9-12781cad3b3f}"/>
+    <RecordField fieldIdRef="6" length="50" name="join_date" sqlType="DATE" uid="{a8c2eab6-ef90-4163-aae9-12781cad3b3f}"/>
   </Record>
   <Record name="sr_plate" uid="{456d573b-9d24-4e40-9bbf-a9bccb6198e0}">
     <RecordField fieldIdRef="2" name="customer_id1" sqlType="INTEGER" uid="{7edc147d-f202-4836-84cd-b4c5f9b1a438}"/>
@@ -15,16 +15,20 @@
     <RecordField fieldIdRef="4" name="plate_rate" sqlType="INTEGER" uid="{70c21fa3-812f-475a-91ca-b6e7315a6826}"/>
   </Record>
   <Form gridHeight="25" gridWidth="80" name="form" text="Form">
-    <VBox gridHeight="14" gridWidth="55" name="vbox1" posX="5" posY="0">
-      <Grid gridHeight="5" gridWidth="55" name="grid1" posX="0" posY="1">
-        <Label gridHeight="1" gridWidth="5" name="lblcustomerid" posX="3" posY="1" text="Customer Id"/>
-        <Edit fieldId="5" gridHeight="1" gridWidth="12" length="50" name="customer_id" posX="9" posY="1" sqlType="CHAR" tabIndex="-1" title="edit1" widget="Edit"/>
-        <Label gridHeight="1" gridWidth="5" name="lblcustomername" posX="3" posY="2" text="Customer Name"/>
-        <Edit fieldId="1" gridHeight="1" gridWidth="12" length="50" name="customer_name" posX="9" posY="2" sqlType="CHAR" tabIndex="-1" title="edit1" widget="Edit"/>
-        <Label gridHeight="1" gridWidth="5" name="lblJoinDate" posX="3" posY="3" text="Join Date"/>
-        <Edit fieldId="6" gridHeight="1" gridWidth="12" length="50" name="join_date" posX="9" posY="3" sqlType="CHAR" tabIndex="-1" title="edit1" widget="Edit"/>
+    <VBox gridHeight="14" gridWidth="59" name="vbox1" posX="5" posY="0">
+      <Grid gridHeight="5" gridWidth="59" name="grid1" posX="0" posY="1">
+        <Label gridHeight="1" gridWidth="5" name="lblcustomerid" posX="1" posY="1" text="Customer Id"/>
+        <Edit fieldId="5" gridHeight="1" gridWidth="12" length="50" name="customer_id" posX="7" posY="1" sqlType="CHAR" tabIndex="-1" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="5" name="lblcustomername" posX="20" posY="1" text="Customer Name"/>
+        <Edit fieldId="1" gridHeight="1" gridWidth="12" length="50" name="customer_name" posX="26" posY="1" sqlType="CHAR" tabIndex="-1" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="5" name="lblJoinDate" posX="39" posY="1" text="Join Date"/>
+        <DateEdit fieldId="6" gridHeight="1" gridWidth="12" length="50" name="join_date" posX="45" posY="1" sqlType="DATE" tabIndex="-1" title="edit1" widget="DateEdit"/>
+        <Button gridHeight="1" gridWidth="5" image="first" name="first" posX="17" posY="3" tabIndex="-1" text=""/>
+        <Button gridHeight="1" gridWidth="5" image="prev" name="previous" posX="23" posY="3" tabIndex="-1" text=""/>
+        <Button gridHeight="1" gridWidth="5" image="next2" name="next" posX="29" posY="3" tabIndex="-1" text=""/>
+        <Button gridHeight="1" gridWidth="5" image="last" name="last" posX="35" posY="3" tabIndex="-1" text=""/>
       </Grid>
-      <Table gridHeight="7" gridWidth="55" name="table1" posX="0" posY="6" totalRows="5">
+      <Table gridHeight="7" gridWidth="59" name="table1" posX="0" posY="6" totalRows="5">
         <Edit fieldId="2" gridHeight="1" gridWidth="8" name="customer_id1" posX="0" posY="0" sqlType="INTEGER" tabIndex="-1" title="Customer Id" widget="Edit"/>
         <Edit fieldId="7" gridHeight="1" gridWidth="8" name="plate_id" posX="8" posY="0" tabIndex="-1" title="Plate Id" widget="Edit"/>
         <Edit fieldId="3" gridHeight="1" gridWidth="8" name="plate_name" posX="16" posY="0" tabIndex="-1" title="Name" widget="Edit"/>
