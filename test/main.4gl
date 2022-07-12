@@ -1,14 +1,3 @@
---Import
-
--- Schema
-
--- Global Variables
-Globals
-  Define
-    gs_company_name String
-
-End Globals
-
 -- Module Variables
 Type
   tyCustomer Record
@@ -34,7 +23,6 @@ Main
   Display Form f1
 
     Call browseCustomers()
-    Call browsePlates()
 
   Close Form f1
 
@@ -50,6 +38,8 @@ Function browseCustomers()
   Declare cBrowseCustomers Scroll Cursor For pBrowseCustomers
   Open cBrowseCustomers
 
+  Call initPlates()
+
   Call navigateCustomers()
 
   Close cBrowseCustomers
@@ -59,26 +49,38 @@ End Function
 
 Function navigateCustomers()
   Define
-    lr_customer tyCustomer
+    lr_customer tyCustomer,
+    la_plates Dynamic Array Of tyPlates
 
   Call readCustomer(lr_customer, "first")
-  Display By Name lr_customer.*
-  Menu
-    On Action first
-      Call readCustomer(lr_customer, "first")
-      Display By Name lr_customer.*
-    On Action previous
-      Call readCustomer(lr_customer, "previous")
-      Display By Name lr_customer.*
-    On Action next
-      Call readCustomer(lr_customer, "next")
-      Display By Name lr_customer.*
-    On Action last
-      Call readCustomer(lr_customer, "last")
-      Display By Name lr_customer.*
+  Call fillPlates( lr_customer.customer_id, la_plates )
+
+  Dialog Attributes (unbuffered)
+    Input By Name lr_customer.* Attributes (Without Defaults)
+      On Action first
+        Call readCustomer(lr_customer, "first")
+        Display By Name lr_customer.*
+        Call fillPlates( lr_customer.customer_id, la_plates )
+      On Action previous
+        Call readCustomer(lr_customer, "previous")
+        Display By Name lr_customer.*
+        Call fillPlates( lr_customer.customer_id, la_plates )
+      On Action next
+        Call readCustomer(lr_customer, "next")
+        Display By Name lr_customer.*
+        Call fillPlates( lr_customer.customer_id, la_plates )
+      On Action last
+        Call readCustomer(lr_customer, "last")
+        Display By Name lr_customer.*
+        Call fillPlates( lr_customer.customer_id, la_plates )
+    End Input
+
+    Display Array la_plates To sr_plate.*
+    End Display
+
     On Action close
-      Exit Menu
-  End Menu
+      Exit Dialog
+  End Dialog
 End Function
 
 Function readCustomer(lr_customer tyCustomer InOut, way String)
@@ -96,22 +98,25 @@ Function readCustomer(lr_customer tyCustomer InOut, way String)
   End Case
 End Function
 
-Function browsePlates()
+Function initPlates()
   Define
-    la_plates Dynamic Array Of tyPlates,
-    lr_plate tyPlates,
     qry String
 
-  Call la_plates.clear()
-  Let qry = "Select * From custplates order by plate_id"
+  Let qry = "Select * From custplates Where customer_id = ? order by plate_id"
   Prepare pReadPlates From qry
   Declare cReadPlates Cursor For pReadPlates
-  Foreach cReadPlates Into lr_plate.*
+End Function
+
+Function fillPlates( customer_id Integer, la_plates Dynamic Array Of tyPlates )
+  Define
+    lr_plate tyPlates
+
+  Call la_plates.clear()
+  Foreach cReadPlates Using customer_id Into lr_plate.*
     Call la_plates.appendElement()
     Let la_plates[la_plates.getLength()].* = lr_plate.*
   End Foreach
 
-  Display Array la_plates To sr_plate.*
 End Function
 
 Function createDB()
@@ -133,4 +138,10 @@ Function createDB()
   Insert Into custplates Values (0,0,"Pizza",5)
   Insert Into custplates Values (0,1,"Pasta",2)
   Insert Into custplates Values (0,2,"Fried Vegs",4)
+  Insert Into custplates Values (1,0,"Pizza",3)
+  Insert Into custplates Values (1,1,"Pasta",5)
+  Insert Into custplates Values (1,2,"Fried Vegs",2)
+  Insert Into custplates Values (2,0,"Pizza",1)
+  Insert Into custplates Values (2,1,"Pasta",2)
+  Insert Into custplates Values (2,2,"Fried Vegs",5)
 End Function
