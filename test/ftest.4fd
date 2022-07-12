@@ -8,10 +8,11 @@
     <RecordField fieldIdRef="5" length="50" name="customer_id" sqlType="CHAR" uid="{1dfc5a00-a39a-4c41-9632-8c55d08537fe}"/>
     <RecordField fieldIdRef="6" length="50" name="join_date" sqlType="CHAR" uid="{a8c2eab6-ef90-4163-aae9-12781cad3b3f}"/>
   </Record>
-  <Record name="sr_customers" uid="{456d573b-9d24-4e40-9bbf-a9bccb6198e0}">
+  <Record name="sr_plate" uid="{456d573b-9d24-4e40-9bbf-a9bccb6198e0}">
     <RecordField fieldIdRef="2" name="customer_id1" sqlType="INTEGER" uid="{7edc147d-f202-4836-84cd-b4c5f9b1a438}"/>
-    <RecordField fieldIdRef="3" name="customer_name1" uid="{eee2e18a-82b3-4d69-8054-2547538cf7e0}"/>
-    <RecordField fieldIdRef="4" name="join_date1" uid="{70c21fa3-812f-475a-91ca-b6e7315a6826}"/>
+    <RecordField fieldIdRef="7" name="plate_id" uid="{1b56f0b8-1a74-4a63-97f5-7c74d3230941}"/>
+    <RecordField fieldIdRef="3" name="plate_name" uid="{eee2e18a-82b3-4d69-8054-2547538cf7e0}"/>
+    <RecordField fieldIdRef="4" name="plate_rate" sqlType="INTEGER" uid="{70c21fa3-812f-475a-91ca-b6e7315a6826}"/>
   </Record>
   <Form gridHeight="25" gridWidth="80" name="form" text="Form">
     <VBox gridHeight="14" gridWidth="55" name="vbox1" posX="5" posY="0">
@@ -24,13 +25,14 @@
         <Edit fieldId="6" gridHeight="1" gridWidth="12" length="50" name="join_date" posX="9" posY="3" sqlType="CHAR" tabIndex="-1" title="edit1" widget="Edit"/>
       </Grid>
       <Table gridHeight="7" gridWidth="55" name="table1" posX="0" posY="6" totalRows="5">
-        <Edit fieldId="2" gridHeight="1" gridWidth="8" name="customer_id1" posX="0" posY="0" sqlType="INTEGER" tabIndex="-1" title="Id" widget="Edit"/>
-        <Edit fieldId="3" gridHeight="1" gridWidth="8" name="customer_name1" posX="8" posY="0" tabIndex="-1" title="Name" widget="Edit"/>
-        <Edit fieldId="4" gridHeight="1" gridWidth="8" name="join_date1" posX="16" posY="0" tabIndex="-1" title="Date" widget="Edit"/>
+        <Edit fieldId="2" gridHeight="1" gridWidth="8" name="customer_id1" posX="0" posY="0" sqlType="INTEGER" tabIndex="-1" title="Customer Id" widget="Edit"/>
+        <Edit fieldId="7" gridHeight="1" gridWidth="8" name="plate_id" posX="8" posY="0" tabIndex="-1" title="Plate Id" widget="Edit"/>
+        <Edit fieldId="3" gridHeight="1" gridWidth="8" name="plate_name" posX="16" posY="0" tabIndex="-1" title="Name" widget="Edit"/>
+        <Edit fieldId="4" gridHeight="1" gridWidth="8" name="plate_rate" posX="24" posY="0" sqlType="INTEGER" tabIndex="-1" title="Rate" widget="Edit"/>
       </Table>
     </VBox>
   </Form>
   <DiagramLayout>
-    <![CDATA[AAAAAgAAAEwAewA0ADUANgBkADUANwAzAGIALQA5AGQAMgA0AC0ANABlADQAMAAtADkAYgBiAGYALQBhADkAYgBjAGMAYgA2ADEAOQA4AGUAMAB9QGtMzN8AAAC/8zMzQAAAAD9gYk3S8an8AQAAAEwAewBmADAAOQA1AGEAOAAzAGYALQA2ADAAOABjAC0ANAAxADMAZAAtAGEANAA5ADAALQAwADkAYQBmADQANgBhAGYANAAzAGYAYwB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQ==]]>
+    <![CDATA[AAAAAgAAAEwAewBmADAAOQA1AGEAOAAzAGYALQA2ADAAOABjAC0ANAAxADMAZAAtAGEANAA5ADAALQAwADkAYQBmADQANgBhAGYANAAzAGYAYwB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQAAAEwAewA0ADUANgBkADUANwAzAGIALQA5AGQAMgA0AC0ANABlADQAMAAtADkAYgBiAGYALQBhADkAYgBjAGMAYgA2ADEAOQA4AGUAMAB9QGtMzOZHrhK/8zMzRR64UD90euFHrhR7AQ==]]>
   </DiagramLayout>
 </ManagedForm>
