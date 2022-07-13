@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="31400" gstVersion="31409" name="managedform" uid="{20088628-a750-4312-8aaf-248db3cdfb5f}">
+  <AGSettings>
+    <DynamicProperties version="2"/>
+  </AGSettings>
+  <Record name="srpoolfreq" uid="{7ab1218c-15a5-48c7-8127-d691d1e770cc}">
+    <RecordField fieldIdRef="1" name="name" uid="{3d33a1f3-3ca6-468e-ab40-3bfecc10f846}"/>
+    <RecordField fieldIdRef="2" name="address" uid="{e8498451-005b-4b98-b3d8-20df4dabae83}"/>
+    <RecordField fieldIdRef="3" name="isopen" uid="{06268cb8-f33a-4cda-a134-84f4cfdf9897}"/>
+    <RecordField fieldIdRef="4" name="edit1" uid="{07b70e5d-5a0e-440e-8c4e-b976d064a49e}"/>
+  </Record>
+  <Record name="record1" uid="{278916e7-d94d-41e3-a877-bd5cfa1a48fc}">
+    <RecordField fieldIdRef="5" name="phone" uid="{bf4a1778-53f6-452d-9cb3-ab1c0438bc24}"/>
+    <RecordField fieldIdRef="6" name="mail" uid="{b6385844-6349-4ec5-9ec1-7dfa5197cd0d}"/>
+    <RecordField fieldIdRef="7" name="websiteurl" uid="{6cb5dbaf-ec1a-4469-860b-2bafd7a2a0fb}"/>
+    <RecordField fieldIdRef="8" name="imageurl" uid="{f1057b8a-c251-48c5-80e1-696d85634de3}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="80" name="form" text="Pools">
+    <VBox gridHeight="13" gridWidth="50" name="vbox1" posX="2" posY="1">
+      <Table gridHeight="6" gridWidth="50" name="table1" posX="0" posY="1" totalRows="5">
+        <Edit fieldId="1" gridHeight="1" gridWidth="8" name="name" posX="0" posY="0" tabIndex="-1" title="Pool Name" widget="Edit"/>
+        <Edit fieldId="2" gridHeight="1" gridWidth="19" name="address" posX="8" posY="0" tabIndex="-1" title="Address" widget="Edit"/>
+        <FFImage fieldId="3" gridHeight="1" gridWidth="8" name="isopen" posX="27" posY="0" title="Is Open" widget="FFImage"/>
+        <Edit fieldId="4" gridHeight="1" gridWidth="10" name="edit1" posX="35" posY="0" tabIndex="-1" title="Nb Swimmers" widget="Edit"/>
+      </Table>
+      <Grid gridHeight="5" gridWidth="50" name="grid1" posX="0" posY="7">
+        <Image gridHeight="1" gridWidth="3" image="font:FontAwesome.ttf:f095" name="phoneimg" posX="1" posY="1"/>
+        <Edit fieldId="5" gridHeight="1" gridWidth="18" name="phone" posX="5" posY="1" tabIndex="-1" title="edit2" widget="Edit"/>
+        <FFImage autoScale="true" fieldId="8" gridHeight="3" gridWidth="20" name="imageurl" posX="25" posY="1" sizePolicy="fixed" stretch="both" title="ffimage1" unitHeight="pixels" unitWidth="pixels" widget="FFImage"/>
+        <Image gridHeight="1" gridWidth="3" image="font:FontAwesome.ttf:f003" name="mailimg" posX="1" posY="2"/>
+        <Edit fieldId="6" gridHeight="1" gridWidth="18" name="mail" posX="5" posY="2" scroll="true" tabIndex="-1" title="edit2" widget="Edit"/>
+        <Image gridHeight="1" gridWidth="3" image="font:FontAwesome.ttf:f0ac" name="webimg" posX="1" posY="3"/>
+        <Edit fieldId="7" gridHeight="1" gridWidth="18" name="websiteurl" posX="5" posY="3" tabIndex="-1" title="edit2" widget="Edit"/>
+      </Grid>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA3AGEAYgAxADIAMQA4AGMALQAxADUAYQA1AC0ANAA4AGMANwAtADgAMQAyADcALQBkADYAOQAxAGQAMQBlADcANwAwAGMAYwB9QGLAABZ///5ATMzM71wo8j9gYk3S8an8AQAAAEwAewAyADcAOAA5ADEANgBlADcALQBkADkANABkAC0ANAAxAGUAMwAtAGEAOAA3ADcALQBiAGQANQBjAGYAYQAxAGEANAA4AGYAYwB9QCgAABZmZmRAKAAAFmZmZAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

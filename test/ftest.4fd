@@ -21,7 +21,7 @@
         <Grid gridHeight="4" gridWidth="59" name="grid1" posX="1" posY="1">
           <FFImage autoScale="true" fieldId="8" gridHeight="3" gridWidth="18" justify="center" name="img" posX="1" posY="0" sizePolicy="fixed" title="ffimage1" widget="FFImage"/>
           <Label gridHeight="1" gridWidth="5" name="lblcustomerid" posX="20" posY="0" text="Customer Id"/>
-          <Edit fieldId="5" gridHeight="1" gridWidth="12" length="50" name="customer_id" posX="26" posY="0" sqlType="CHAR" tabIndex="-1" title="edit1" widget="Edit"/>
+          <Edit fieldId="5" gridHeight="1" gridWidth="12" length="50" name="customer_id" noEntry="true" posX="26" posY="0" sqlType="CHAR" tabIndex="-1" title="edit1" widget="Edit"/>
           <Label gridHeight="1" gridWidth="5" name="lblcustomername" posX="20" posY="1" text="Customer Name"/>
           <Edit fieldId="1" gridHeight="1" gridWidth="12" length="50" name="customer_name" posX="26" posY="1" sqlType="CHAR" tabIndex="-1" title="edit1" widget="Edit"/>
           <Label gridHeight="1" gridWidth="5" name="lblJoinDate" posX="39" posY="1" text="Join Date"/>
@@ -41,6 +41,6 @@
     </VBox>
   </Form>
   <DiagramLayout>
-    <![CDATA[AAAAAgAAAEwAewBmADAAOQA1AGEAOAAzAGYALQA2ADAAOABjAC0ANAAxADMAZAAtAGEANAA5ADAALQAwADkAYQBmADQANgBhAGYANAAzAGYAYwB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQAAAEwAewA0ADUANgBkADUANwAzAGIALQA5AGQAMgA0AC0ANABlADQAMAAtADkAYgBiAGYALQBhADkAYgBjAGMAYgA2ADEAOQA4AGUAMAB9QGtMzOZHrhK/8zMzRR64UD90euFHrhR7AQ==]]>
+    <![CDATA[AAAAAgAAAEwAewBmADAAOQA1AGEAOAAzAGYALQA2ADAAOABjAC0ANAAxADMAZAAtAGEANAA5ADAALQAwADkAYQBmADQANgBhAGYANAAzAGYAYwB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQAAAEwAewA0ADUANgBkADUANwAzAGIALQA5AGQAMgA0AC0ANABlADQAMAAtADkAYgBiAGYALQBhADkAYgBjAGMAYgA2ADEAOQA4AGUAMAB9QGtMzO2PXCe/8zMzSj1woj90euFHrhR7AQ==]]>
   </DiagramLayout>
 </ManagedForm>

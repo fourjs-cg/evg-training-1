@@ -68,6 +68,14 @@
     <Application binaryName="firstApp" id="93208818" label="firstApp">
       <File filePath="test/ftest.4fd"/>
       <File filePath="test/main.4gl"/>
+      <File excludeFromLink="true" filePath="test/mySqlUtilities.4gl"/>
+      <File excludeFromLink="true" filePath="test/sqlCustomers.4gl"/>
+    </Application>
+    <Application binaryName="Json" id="27024800" label="Json">
+      <File filePath="test/frequentation-en-temps-reel-des-piscines.json"/>
+      <File filePath="test/jsonmain.4gl"/>
+      <File filePath="test/lieux_piscines.json"/>
+      <File filePath="test/pools.4fd"/>
     </Application>
   </Group>
 </Project>
