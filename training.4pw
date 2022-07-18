@@ -70,6 +70,7 @@
       <File filePath="test/main.4gl"/>
       <File excludeFromLink="true" filePath="test/mySqlUtilities.4gl"/>
       <File filePath="test/mystyle.4st"/>
+      <File filePath="test/sqlCountries.4gl"/>
       <File excludeFromLink="true" filePath="test/sqlCustomers.4gl"/>
       <File filePath="test/sqlPlates.4gl"/>
     </Application>

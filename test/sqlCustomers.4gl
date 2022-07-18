@@ -3,7 +3,8 @@ Public Type
     customer_id integer,
     customer_name char(50),
     join_date date,
-    img varchar(100)
+    img varchar(100),
+    customer_country Integer
   End Record
 
 Public Define
@@ -43,7 +44,8 @@ Public Function updateCustomer( hasChanged Boolean, requestValidation Boolean, l
     Try
       Update customers
         Set customer_name = lr_customer.customer_name,
-            join_date = lr_customer.join_date
+            join_date = lr_customer.join_date,
+            customer_country = lr_customer.customer_country
         Where customer_id = lr_customer.customer_id
       Let hasChanged = False
     Catch

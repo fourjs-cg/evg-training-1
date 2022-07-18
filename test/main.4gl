@@ -1,6 +1,7 @@
 Import FGL mySqlUtilities
 Import FGL sqlCustomers
 Import FGL sqlPlates
+Import FGL sqlCountries
 
 Main
   Call ui.Interface.loadStyles("mystyle")
@@ -34,7 +35,7 @@ Function navigateCustomers( nbl Integer )
   Define
     lr_customer tyCustomer,
     lr_oldCustomer tyCustomer,
-    la_plates Dynamic Array Of tyPlates,
+    la_plates Dynamic Array Of sqlPlates.tyNamedCustPlate,
     curl Integer,
     curCust Integer,
     cntPlate Integer = 0,
@@ -56,7 +57,7 @@ Function navigateCustomers( nbl Integer )
         Call Dialog.setArrayLength("sr_plate",countLines("custplates","customer_id = "||lr_customer.customer_id))
         Call Dialog.setActionActive("save",false)
 
-      On Change customer_name, join_date
+      On Change customer_name, join_date, customer_country
         Call Dialog.setActionActive("save",true)
         Let hasChanged = True
 
@@ -116,12 +117,12 @@ Function navigateCustomers( nbl Integer )
         Call la_plates.clear()
         Call fillPlates( lr_customer.customer_id, la_plates, fgl_dialog_getbufferstart(), fgl_dialog_getbufferlength() )
 
-      On Append
-        Let int_flag = False
-        Call inputPlate(Dialog, la_plates, False)
-        If Not Int_Flag Then
-          Let Int_Flag = addPlate(Dialog, la_plates)
-        End If
+      --On Append
+      --  Let int_flag = False
+      --  Call inputPlate(Dialog, la_plates, False)
+      --  If Not Int_Flag Then
+      --    Let Int_Flag = addPlate(Dialog, la_plates)
+      --  End If
       On Insert
         Let int_flag = False
         Call inputPlate(Dialog, la_plates, False)
@@ -144,17 +145,58 @@ Function navigateCustomers( nbl Integer )
   End Dialog
 End Function
 
-Function inputPlate( Dlg ui.Dialog, la_plates Dynamic Array Of sqlPlates.tyPlates, isUpdate Boolean )
+Function inputPlate( Dlg ui.Dialog, la_plates Dynamic Array Of sqlPlates.tyNamedCustPlate, isUpdate Boolean )
   Define
-    lr_plate sqlPlates.tyPlates
+    lr_plate sqlPlates.tyNamedCustPlate,
+    la_plateNames Dynamic Array Of String,
+    la_plateNamesWithKey Dynamic Array Of sqlPlates.tyPlate
 
   Let lr_plate = la_plates[Dlg.getCurrentRow("sr_plate")]
   Let int_flag = False
   Input la_plates[Dlg.getCurrentRow("sr_plate")].* From sr_plate[Dlg.getCurrentRow("sr_plate")].*
     Attributes (Without Defaults = isUpdate)
+
+    On Change plate_name
+      Call plateNameCompleter( Dialog,
+                               la_plateNamesWithKey,
+                               la_plateNames,
+                               la_plates[Dlg.getCurrentRow("sr_plate")].plate_name)
+      If la_plateNames.getLength() = 1 Then
+        Let la_plates[Dlg.getCurrentRow("sr_plate")].plate_name = la_plateNames[1]
+        Let la_plates[Dlg.getCurrentRow("sr_plate")].plate_id = sqlPlates.plateGetKey(la_plateNames[1])
+      Else
+        Call Dialog.setCompleterItems(la_plateNames)
+      End If
+
+  End Input
   If int_flag Then
     Let la_plates[Dlg.getCurrentRow("sr_plate")] = lr_plate
   End If
+End Function
+
+Function plateNameCompleter(
+  Dlg ui.Dialog,
+  la_plateNamesWithKey Dynamic Array Of sqlPlates.tyPlate,
+  la_plateNames Dynamic Array Of String,
+  plate_name String
+)
+
+  Define
+    lr_plateNamesWithKey sqlPlates.tyPlate,
+    qry String
+
+  Let qry = "Select * From plates where plate_name Like ? Limit 40"
+  If plate_name.getLength() > 0 Then
+    Declare cPlatesCompleter Cursor From qry
+    Call la_plateNames.clear()
+    Call la_plateNamesWithKey.clear()
+    Let plate_name = plate_name.append("%")
+    Foreach cPlatesCompleter Using plate_name Into lr_plateNamesWithKey.*
+      Call la_plateNames.appendElement()
+      Let la_plateNames[la_plateNames.getLength()] = lr_plateNamesWithKey.plate_name
+    End Foreach
+  End If
+
 End Function
 
 Function mgtActions(dlg ui.Dialog, curl Integer ,nbl Integer ) Returns Integer
@@ -165,4 +207,14 @@ Function mgtActions(dlg ui.Dialog, curl Integer ,nbl Integer ) Returns Integer
   Call dlg.setActionActive("last",curl < nbl)
 
   Return curl
+End Function
+
+Function fillCbCountry( cbId ui.ComboBox )
+  Define
+    lr_country sqlCountries.tyCountry
+
+  Call cbId.clear()
+  While readCountries( lr_country )
+    Call cbId.addItem(lr_country.country_id,lr_country.country_name)
+  End While
 End Function
