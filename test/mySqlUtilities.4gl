@@ -7,7 +7,8 @@ Public Function countLines( tbl String, wcl String )
   If tbl is not null Then
     Let qry = qry.append(tbl)
     If wcl Is Not Null Then
-      --
+      Let qry = qry.append(" Where ")
+      Let qry = qry.append(" "||wcl)
     End If
     Prepare pCountTblRows From qry
     Execute pCountTblRows Into nbl
@@ -20,6 +21,9 @@ Public Function countLines( tbl String, wcl String )
 End Function
 
 Function createDB()
+  Define
+    i SmallInt
+
   Connect To ":memory:+driver='dbmsqt'"
   Create Table customers (
     customer_id integer,
@@ -42,13 +46,20 @@ Function createDB()
     plate_name char(50),
     plate_rate integer
     )
-  Insert Into custplates Values (0,0,"Pizza",5)
-  Insert Into custplates Values (0,1,"Pasta",2)
-  Insert Into custplates Values (0,2,"Fried Vegs",4)
-  Insert Into custplates Values (1,0,"Pizza",3)
-  Insert Into custplates Values (1,1,"Pasta",5)
-  Insert Into custplates Values (1,2,"Fried Vegs",2)
-  Insert Into custplates Values (2,0,"Pizza",1)
-  Insert Into custplates Values (2,1,"Pasta",2)
-  Insert Into custplates Values (2,2,"Fried Vegs",5)
+  For i = 1 To 1000
+    Insert Into custplates Values (0,i,"Pizza",5)
+    Insert Into custplates Values (0,i,"Pasta",2)
+    Insert Into custplates Values (0,i,"Fried Vegs",4)
+  End For
+
+  For i = 1 To 500
+  Insert Into custplates Values (1,i,"Pizza",3)
+  Insert Into custplates Values (1,i,"Pasta",5)
+  Insert Into custplates Values (1,i,"Fried Vegs",2)
+  End For
+  For i = 1 To 800
+  Insert Into custplates Values (2,i,"Pizza",1)
+  Insert Into custplates Values (2,i,"Pasta",2)
+  Insert Into custplates Values (2,i,"Fried Vegs",5)
+  End For
 End Function
