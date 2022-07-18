@@ -1,16 +1,9 @@
 Import FGL mySqlUtilities
 Import FGL sqlCustomers
-
--- Module Variables
-Type
-  tyPlates Record
-    customer_id integer,
-    plate_id integer,
-    plate_name char(50),
-    plate_rate integer
-  End Record
+Import FGL sqlPlates
 
 Main
+  Call ui.Interface.loadStyles("mystyle")
   Call createDB()
 
   Open Form f1 From "ftest"
@@ -118,11 +111,33 @@ Function navigateCustomers( nbl Integer )
     End Input
 
     Display Array la_plates To sr_plate.*
+      On Append
+        Call inputPlate(Dialog, la_plates, False)
+      On Insert
+        Call inputPlate(Dialog, la_plates, False)
+      On Update
+        Call inputPlate(Dialog, la_plates, True)
+      On Delete
+        Let Int_flag = Not deletePlate(la_plates[Dialog.getCurrentRow("sr_plate")].customer_id,
+                                       la_plates[Dialog.getCurrentRow("sr_plate")].plate_id)
     End Display
 
     On Action close
       Exit Dialog
   End Dialog
+End Function
+
+Function inputPlate( Dlg ui.Dialog, la_plates Dynamic Array Of sqlPlates.tyPlates, isUpdate Boolean )
+  Define
+    lr_plate sqlPlates.tyPlates
+
+  Let lr_plate = la_plates[Dlg.getCurrentRow("sr_plate")]
+  Let int_flag = False
+  Input la_plates[Dlg.getCurrentRow("sr_plate")].* From sr_plate[Dlg.getCurrentRow("sr_plate")].*
+    Attributes (Without Defaults = isUpdate)
+  If int_flag Then
+    Let la_plates[Dlg.getCurrentRow("sr_plate")] = lr_plate
+  End If
 End Function
 
 Function mgtActions(dlg ui.Dialog, curl Integer ,nbl Integer ) Returns Integer
