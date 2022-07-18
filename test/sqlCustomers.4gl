@@ -1,11 +1,7 @@
+Schema firstapp
+
 Public Type
-  tyCustomer Record
-    customer_id integer,
-    customer_name char(50),
-    join_date date,
-    img varchar(100),
-    customer_country Integer
-  End Record
+  tyCustomer Record Like customers.*
 
 Public Define
   qryString String
@@ -18,7 +14,11 @@ Public Function setQry( s String )
   Let qryString = s
 End Function
 
-Public Function updateCustomer( hasChanged Boolean, requestValidation Boolean, lr_customer tyCustomer InOut, lr_oldCustomer tyCustomer ) Returns Boolean
+Public Function updateCustomer( hasChanged Boolean, 
+                                requestValidation Boolean, 
+                                lr_customer tyCustomer InOut, 
+                                lr_oldCustomer tyCustomer ) 
+                Returns Boolean
   Define
     doIt Boolean,
     lr_dbCustomer tyCustomer
@@ -64,7 +64,7 @@ Private Function init( withPrepare Boolean )
   Let isCursorOpen = True
 End Function
 
-Function readDbCustomer( keyval Integer )
+Function readDbCustomer( keyval Like customers.customer_id )
   Define
     lr_Customer tyCustomer
 
@@ -73,7 +73,11 @@ Function readDbCustomer( keyval Integer )
   Return lr_Customer.*
 End Function
 
-Function readCustomer(lr_customer tyCustomer InOut, way String, forceRefresh Boolean ) Returns tyCustomer
+Function readCustomer( lr_customer tyCustomer InOut, 
+                       way String, 
+                       forceRefresh Boolean ) 
+         Returns tyCustomer
+
   If Not isCursorOpen Then
     Call init( True )
   End If
@@ -130,7 +134,7 @@ Function askHim( ttl String, img String, msg String)
   End Menu
 End Function
 
-Function deleteCustomer( li_customer_id Integer )
+Function deleteCustomer( li_customer_id Like customers.customer_id )
   Define
     Ok Boolean
 

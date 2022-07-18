@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<ManagedForm fileVersion="31400" gstVersion="31409" name="managedform" uid="{3596a0ba-b445-4ae2-a911-692e3ea90fc5}">
+<ManagedForm databaseName="firstapp" fileVersion="31400" gstVersion="31409" name="managedform" uid="{3596a0ba-b445-4ae2-a911-692e3ea90fc5}">
   <AGSettings>
     <DynamicProperties version="2"/>
   </AGSettings>
   <Record name="sr_customer" uid="{f095a83f-608c-413d-a490-09af46af43fc}">
-    <RecordField fieldIdRef="1" length="50" name="customer_name" sqlType="CHAR" uid="{4dc8be80-2ed6-42e0-aab8-c2e015dc68b6}"/>
-    <RecordField fieldIdRef="5" length="50" name="customer_id" sqlType="CHAR" uid="{1dfc5a00-a39a-4c41-9632-8c55d08537fe}"/>
-    <RecordField fieldIdRef="6" length="50" name="join_date" sqlType="DATE" uid="{a8c2eab6-ef90-4163-aae9-12781cad3b3f}"/>
-    <RecordField fieldIdRef="8" name="img" uid="{e7fa1d8d-e1c0-4c48-a502-556a663247a6}"/>
-    <RecordField fieldIdRef="9" length="100" name="customer_country" uid="{301ccd28-7a51-4765-86d0-59bd066935d7}"/>
+    <RecordField colName="customer_name" fieldIdRef="1" fieldType="COLUMN_LIKE" name="customer_name" sqlTabName="customers" uid="{4dc8be80-2ed6-42e0-aab8-c2e015dc68b6}"/>
+    <RecordField colName="customer_id" fieldIdRef="5" fieldType="COLUMN_LIKE" name="customer_id" sqlTabName="customers" uid="{1dfc5a00-a39a-4c41-9632-8c55d08537fe}"/>
+    <RecordField colName="join_date" fieldIdRef="6" fieldType="COLUMN_LIKE" name="join_date" sqlTabName="customers" uid="{a8c2eab6-ef90-4163-aae9-12781cad3b3f}"/>
+    <RecordField colName="img" fieldIdRef="8" fieldType="COLUMN_LIKE" name="img" sqlTabName="customers" uid="{e7fa1d8d-e1c0-4c48-a502-556a663247a6}"/>
+    <RecordField colName="customer_country" fieldIdRef="9" fieldType="COLUMN_LIKE" name="customer_country" sqlTabName="customers" uid="{301ccd28-7a51-4765-86d0-59bd066935d7}"/>
   </Record>
   <Record name="sr_plate" uid="{456d573b-9d24-4e40-9bbf-a9bccb6198e0}">
-    <RecordField fieldIdRef="2" name="customer_id1" sqlType="INTEGER" uid="{7edc147d-f202-4836-84cd-b4c5f9b1a438}"/>
-    <RecordField fieldIdRef="7" name="plate_id" uid="{1b56f0b8-1a74-4a63-97f5-7c74d3230941}"/>
-    <RecordField fieldIdRef="4" name="plate_rate" sqlType="INTEGER" uid="{70c21fa3-812f-475a-91ca-b6e7315a6826}"/>
-    <RecordField fieldIdRef="3" name="plate_name" uid="{eee2e18a-82b3-4d69-8054-2547538cf7e0}"/>
+    <RecordField colName="customer_id" fieldIdRef="2" fieldType="COLUMN_LIKE" name="customer_id1" sqlTabName="custplates" uid="{7edc147d-f202-4836-84cd-b4c5f9b1a438}"/>
+    <RecordField colName="plate_id" fieldIdRef="7" fieldType="COLUMN_LIKE" name="plate_id" sqlTabName="custplates" uid="{1b56f0b8-1a74-4a63-97f5-7c74d3230941}"/>
+    <RecordField colName="plate_rate" fieldIdRef="4" fieldType="COLUMN_LIKE" name="plate_rate" sqlTabName="custplates" uid="{70c21fa3-812f-475a-91ca-b6e7315a6826}"/>
+    <RecordField colName="plate_name" fieldIdRef="3" fieldType="COLUMN_LIKE" name="plate_name" sqlTabName="plates" uid="{eee2e18a-82b3-4d69-8054-2547538cf7e0}"/>
   </Record>
   <Form gridHeight="25" gridWidth="80" name="form" text="Form">
     <VBox gridHeight="15" gridWidth="61" name="vbox1" posX="5" posY="0">
       <Group gridHeight="7" gridWidth="61" name="gcust" posX="0" posY="1" text="Customer">
         <Grid gridHeight="4" gridWidth="59" name="grid1" posX="1" posY="1">
-          <FFImage autoScale="true" fieldId="8" gridHeight="3" gridWidth="18" justify="center" name="img" posX="1" posY="0" sizePolicy="fixed" title="ffimage1" widget="FFImage"/>
+          <FFImage autoScale="true" colName="img" fieldId="8" fieldType="COLUMN_LIKE" gridHeight="3" gridWidth="18" justify="center" name="img" posX="1" posY="0" sizePolicy="fixed" sqlTabName="customers" title="ffimage1" widget="FFImage"/>
           <Label gridHeight="1" gridWidth="5" name="lblcustomerid" posX="20" posY="0" text="Customer Id"/>
-          <Edit fieldId="5" gridHeight="1" gridWidth="12" length="50" name="customer_id" noEntry="true" posX="26" posY="0" sqlType="CHAR" tabIndex="-1" title="edit1" widget="Edit"/>
+          <Edit colName="customer_id" fieldId="5" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="12" name="customer_id" noEntry="true" posX="26" posY="0" sqlTabName="customers" tabIndex="-1" title="edit1" widget="Edit"/>
           <Label gridHeight="1" gridWidth="5" name="lblcustomername" posX="20" posY="1" text="Customer Name"/>
-          <Edit fieldId="1" gridHeight="1" gridWidth="12" length="50" name="customer_name" posX="26" posY="1" sqlType="CHAR" tabIndex="-1" title="edit1" widget="Edit"/>
+          <Edit colName="customer_name" fieldId="1" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="12" name="customer_name" posX="26" posY="1" sqlTabName="customers" tabIndex="-1" title="edit1" widget="Edit"/>
           <Label gridHeight="1" gridWidth="5" name="lblJoinDate" posX="39" posY="1" text="Join Date"/>
-          <DateEdit fieldId="6" gridHeight="1" gridWidth="11" length="50" name="join_date" posX="45" posY="1" sqlType="DATE" tabIndex="-1" title="edit1" widget="DateEdit"/>
-          <ComboBox fieldId="9" gridHeight="1" gridWidth="12" initializer="fillCbCountry" items="" length="100" name="customer_country" notNull="true" posX="26" posY="2" tabIndex="-1" title="combobox1" widget="ComboBox"/>
+          <DateEdit colName="join_date" fieldId="6" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="11" name="join_date" posX="45" posY="1" sqlTabName="customers" tabIndex="-1" title="edit1" widget="DateEdit"/>
+          <ComboBox colName="customer_country" fieldId="9" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="12" initializer="fillCbCountry" items="" name="customer_country" notNull="true" posX="26" posY="2" sqlTabName="customers" tabIndex="-1" title="combobox1" widget="ComboBox"/>
           <Button gridHeight="1" gridWidth="2" image="first" name="first" posX="45" posY="2" tabIndex="-1" text=""/>
           <Button gridHeight="1" gridWidth="2" image="prev" name="previous" posX="48" posY="2" tabIndex="-1" text=""/>
           <Button gridHeight="1" gridWidth="2" image="next2" name="next" posX="51" posY="2" tabIndex="-1" text=""/>
@@ -35,14 +35,14 @@
         </Grid>
       </Group>
       <Table gridHeight="6" gridWidth="61" name="table1" posX="0" posY="8" totalRows="5">
-        <Phantom fieldId="2" name="customer_id1" sqlType="INTEGER" widget="Phantom"/>
-        <Edit fieldId="7" gridHeight="1" gridWidth="8" name="plate_id" posX="0" posY="0" tabIndex="-1" title="Plate Id" widget="Edit"/>
-        <Edit completer="true" fieldId="3" gridHeight="1" gridWidth="8" name="plate_name" posX="8" posY="0" tabIndex="-1" title="Name" widget="Edit"/>
-        <Edit fieldId="4" gridHeight="1" gridWidth="8" name="plate_rate" posX="16" posY="0" sqlType="INTEGER" tabIndex="-1" title="Rate" widget="Edit"/>
+        <Phantom colName="customer_id" fieldId="2" fieldType="COLUMN_LIKE" name="customer_id1" sqlTabName="custplates" widget="Phantom"/>
+        <Edit colName="plate_id" fieldId="7" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="8" name="plate_id" posX="0" posY="0" sqlTabName="custplates" tabIndex="-1" title="Plate Id" widget="Edit"/>
+        <Edit colName="plate_name" completer="true" fieldId="3" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="8" name="plate_name" posX="8" posY="0" sqlTabName="plates" tabIndex="-1" title="Name" widget="Edit"/>
+        <Edit colName="plate_rate" fieldId="4" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="8" name="plate_rate" posX="16" posY="0" sqlTabName="custplates" tabIndex="-1" title="Rate" widget="Edit"/>
       </Table>
     </VBox>
   </Form>
   <DiagramLayout>
-    <![CDATA[AAAAAgAAAEwAewBmADAAOQA1AGEAOAAzAGYALQA2ADAAOABjAC0ANAAxADMAZAAtAGEANAA5ADAALQAwADkAYQBmADQANgBhAGYANAAzAGYAYwB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQAAAEwAewA0ADUANgBkADUANwAzAGIALQA5AGQAMgA0AC0ANABlADQAMAAtADkAYgBiAGYALQBhADkAYgBjAGMAYgA2ADEAOQA4AGUAMAB9QGtMzQNmZm+/8zMzWZmZnj90euFHrhR7AQ==]]>
+    <![CDATA[AAAAAgAAAEwAewBmADAAOQA1AGEAOAAzAGYALQA2ADAAOABjAC0ANAAxADMAZAAtAGEANAA5ADAALQAwADkAYQBmADQANgBhAGYANAAzAGYAYwB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQAAAEwAewA0ADUANgBkADUANwAzAGIALQA5AGQAMgA0AC0ANABlADQAMAAtADkAYgBiAGYALQBhADkAYgBjAGMAYgA2ADEAOQA4AGUAMAB9QGtMzQquFIq/8zMzXrhR9D90euFHrhR7AQ==]]>
   </DiagramLayout>
 </ManagedForm>

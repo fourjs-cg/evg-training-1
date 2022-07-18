@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Schema gstVersion="31409" id="{c9c55e39-06ea-4e1f-98db-5f8682dfd694}" version="4.0">
+  <AGSettings version="1.1">
+    <DynamicProperties version="2">
+      <DynamicProperty description="Associated label when generating form" initialValue="" isDefaultInherited="false" isHidden="false" label="Label" name="label" readOnly="false" type="TEXT"/>
+      <DynamicProperty description="Associated widget" editorInfo="contains:ButtonEdit|CheckBox|ComboBox|DateEdit|DateTimeEdit|Edit|FFImage|FFLabel|Field|Phantom|ProgressBar|RadioGroup|Slider|SpinEdit|TextEdit|TimeEdit" initialValue="Edit" isDefaultInherited="false" isHidden="false" label="Widget" name="widget" readOnly="false" type="ENUM"/>
+      <DynamicPropertyGroup collapsed="false" description="Formfied properties" label="Formfield" name="formfieldGroup" properties="label;widget"/>
+    </DynamicProperties>
+    <NodeInfos version="1">
+      <NodeInfo mimeType="db/column" properties="widget;label"/>
+    </NodeInfos>
+  </AGSettings>
+  <ExtractionSettings/>
+  <Table active="true" name="countries" status="A" uuid="db/table2">
+    <Column fglLength="4" fglType="2" name="country_id" notNull="false" order="1" status="A" uuid="db/column2"/>
+    <Column fglLength="100" fglType="201" name="country_name" notNull="false" order="2" status="A" uuid="db/column4"/>
+    <Index indexColumns="country_id" indexConstraint="primaryKey" name="pkCountries" status="A" uuid="db/index2"/>
+  </Table>
+  <Table active="true" name="customers" status="A" uuid="db/table4">
+    <Column fglLength="4" fglType="2" name="customer_id" notNull="false" order="1" status="A" uuid="db/column6"/>
+    <Column fglLength="100" fglType="201" name="customer_name" notNull="false" order="2" status="A" uuid="db/column8"/>
+    <Column fglLength="4" fglType="7" name="join_date" notNull="false" order="3" status="A" uuid="db/column10"/>
+    <Column fglLength="100" fglType="201" name="img" notNull="false" order="4" status="A" uuid="db/column12"/>
+    <Column fglLength="4" fglType="2" name="customer_country" notNull="false" order="5" status="A" uuid="db/column14"/>
+    <Index indexColumns="customer_id" indexConstraint="primaryKey" name="PK_customers_1" status="A" uuid="db/index4"/>
+  </Table>
+  <Table active="true" name="plates" status="A" uuid="db/table6">
+    <Column fglLength="4" fglType="2" name="plate_id" notNull="false" order="1" status="A" uuid="db/column16"/>
+    <Column fglLength="100" fglType="201" name="plate_name" notNull="false" order="2" status="A" uuid="db/column18"/>
+    <Index indexColumns="plate_id" indexConstraint="primaryKey" name="pkPlates" status="A" uuid="db/index6"/>
+  </Table>
+  <Table active="true" name="custplates" status="A" uuid="db/table8">
+    <Column fglLength="4" fglType="2" name="customer_id" notNull="false" order="1" status="A" uuid="db/column20"/>
+    <Column fglLength="4" fglType="2" name="plate_id" notNull="false" order="2" status="A" uuid="db/column22"/>
+    <Column fglLength="4" fglType="2" name="plate_rate" notNull="false" order="3" status="A" uuid="db/column24"/>
+    <Index indexColumns="customer_id, plate_id" indexConstraint="primaryKey" name="pkCustplates" status="A" uuid="db/index8"/>
+  </Table>
+  <ForeignKey cascadeDelete="false" fkColumns="customer_country" fkRefColumns="country_id" name="fkCustomersCountries" refTable="countries" status="A" table="customers" uuid="db/foreignkey2"/>
+  <ForeignKey cascadeDelete="false" fkColumns="plate_id" fkRefColumns="plate_id" name="fkCustplatesPlates" refTable="plates" status="A" table="custplates" uuid="db/foreignkey4"/>
+  <ForeignKey cascadeDelete="false" fkColumns="customer_id" fkRefColumns="customer_id" name="fkCustplatesCustomers" refTable="customers" status="A" table="custplates" uuid="db/foreignkey6"/>
+  <Views ActiveView="View-1" showLabels="true">
+    <View Name="View-1">
+      <Layout>
+        <![CDATA[AAAAAgAAABIAZABiAC8AdABhAGIAbABlADZAaQzM3YAAAEBqGZmrAAAAP7T987ZFoc8BAAAAEgBkAGIALwB0AGEAYgBsAGUANECFVmZ0oAAAQFLmZnMAAAA/sKPXCj1wpwEAAAASAGQAYgAvAHQAYQBiAGwAZQAyQGlZmaqAAABAVeZmdQAAAD+OuFHrhR68AQAAABIAZABiAC8AdABhAGIAbABlADhAf1mZroAAAEB2kzNCQAAAP7ZFocrAgxcB]]>
+      </Layout>
+    </View>
+  </Views>
+</Schema>

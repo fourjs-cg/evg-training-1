@@ -3,6 +3,8 @@ Import FGL sqlCustomers
 Import FGL sqlPlates
 Import FGL sqlCountries
 
+Schema firstapp
+
 Main
   Call ui.Interface.loadStyles("mystyle")
   Call createDB()
@@ -117,24 +119,27 @@ Function navigateCustomers( nbl Integer )
         Call la_plates.clear()
         Call fillPlates( lr_customer.customer_id, la_plates, fgl_dialog_getbufferstart(), fgl_dialog_getbufferlength() )
 
-      --On Append
-      --  Let int_flag = False
-      --  Call inputPlate(Dialog, la_plates, False)
-      --  If Not Int_Flag Then
-      --    Let Int_Flag = addPlate(Dialog, la_plates)
-      --  End If
+      On Append
+        Let int_flag = False
+        Call inputPlate(Dialog, la_plates, False)
+        If Not Int_Flag Then
+          Let Int_Flag = addPlate(Dialog, la_plates)
+        End If
+
       On Insert
         Let int_flag = False
         Call inputPlate(Dialog, la_plates, False)
         If Not Int_Flag Then
           Let Int_Flag = addPlate(Dialog, la_plates)
         End If
+
       On Update
         Let int_flag = False
         Call inputPlate(Dialog, la_plates, True)
         If Not Int_Flag Then
           Let Int_Flag = updatePlate(Dialog, la_plates)
         End If
+
       On Delete
         Let Int_flag = Not deletePlate(la_plates[Dialog.getCurrentRow("sr_plate")].customer_id,
                                        la_plates[Dialog.getCurrentRow("sr_plate")].plate_id)
@@ -153,7 +158,8 @@ Function inputPlate( Dlg ui.Dialog, la_plates Dynamic Array Of sqlPlates.tyNamed
 
   Let lr_plate = la_plates[Dlg.getCurrentRow("sr_plate")]
   Let int_flag = False
-  Input la_plates[Dlg.getCurrentRow("sr_plate")].* From sr_plate[Dlg.getCurrentRow("sr_plate")].*
+  Input la_plates[Dlg.getCurrentRow("sr_plate")].*
+    From sr_plate[SCR_LINE()].*
     Attributes (Without Defaults = isUpdate)
 
     On Change plate_name

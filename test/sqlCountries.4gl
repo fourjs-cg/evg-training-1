@@ -1,8 +1,7 @@
+Schema firstapp
+
 Public Type
-  tyCountry Record
-    country_id Integer,
-    country_name varchar(100)
-  End Record
+  tyCountry Record Like countries.*
 
 Private Define
   isCursorOpen Boolean = False

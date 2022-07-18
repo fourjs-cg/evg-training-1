@@ -1,21 +1,18 @@
+Schema firstapp
+
 Public Type
-  tyPlate Record
-    plate_id integer,
-    plate_name varchar(100)
-  End Record,
-  tyCustPlate Record
-    customer_id integer,
-    plate_id integer,
-    plate_rate integer
-  End Record,
+  tyPlate Record Like plates.*,
+  tyCustPlate Record Like custplates.*,
   tyNamedCustPlate Record
-    customer_id integer,
-    plate_id integer,
-    plate_rate integer,
-    plate_name varchar(100)
+    customer_id Like custplates.customer_id,
+    plate_id Like custplates.plate_id,
+    plate_rate Like custplates.plate_rate,
+    plate_name like plates.plate_name
   End Record
 
-Public Function deletePlate(li_customer_id Integer, li_plate_id Integer) Returns Boolean
+Public Function deletePlate(li_customer_id Like custplates.customer_id, 
+                            li_plate_id Like custplates.plate_id) 
+                Returns Boolean
   Define
     isOk Boolean = True
 
@@ -31,7 +28,9 @@ Public Function deletePlate(li_customer_id Integer, li_plate_id Integer) Returns
   Return isOk
 End Function
 
-Public Function addPlate(Dlg ui.Dialog, la_plates Dynamic Array Of tyNamedCustPlate) Returns Boolean
+Public Function addPlate(Dlg ui.Dialog, 
+                         la_plates Dynamic Array Of tyNamedCustPlate) 
+                Returns Boolean
   Define
     isOk Boolean = True
 
@@ -48,7 +47,9 @@ Public Function addPlate(Dlg ui.Dialog, la_plates Dynamic Array Of tyNamedCustPl
   Return isOk
 End Function
 
-Public Function updatePlate(Dlg ui.Dialog, la_plates Dynamic Array Of tyNamedCustPlate) Returns Boolean
+Public Function updatePlate(Dlg ui.Dialog, 
+                            la_plates Dynamic Array Of tyNamedCustPlate) 
+                Returns Boolean
   Define
     isOk Boolean = True
 
@@ -75,7 +76,10 @@ Function initPlates()
   Declare cReadPlates Scroll Cursor For pReadPlates
 End Function
 
-Function fillPlates( customer_id Integer, la_plates Dynamic Array Of tyNamedCustPlate, startRow Integer, endRow Integer )
+Function fillPlates( customer_id Integer, 
+                     la_plates Dynamic Array Of tyNamedCustPlate, 
+                     startRow Integer, 
+                     endRow Integer )
   Define
     lr_plate tyNamedCustPlate,
     d Integer,
@@ -99,9 +103,9 @@ Function fillPlates( customer_id Integer, la_plates Dynamic Array Of tyNamedCust
 
 End Function
 
-Function plateGetKey( ls_plateName String )
+Function plateGetKey( ls_plateName Like plates.plate_name )
   Define
-    li_plate_id Integer
+    li_plate_id Like plates.plate_id
 
   Select plate_id Into li_plate_id From plates Where plate_name = ls_plateName
   Return li_plate_id
