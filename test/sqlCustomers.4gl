@@ -1,3 +1,5 @@
+Import FGL utilities
+
 Schema firstapp
 
 Public Type
@@ -28,7 +30,7 @@ Public Function updateCustomer( hasChanged Boolean,
     Let doIt = True
   End If
   If doIt And requestValidation Then
-    If Not askHim("Updates are here","question","Save your updates?") Then
+    If Not utilities.askHim("Updates are here","question","Save your updates?") Then
       Let doIt = False
       Let hasChanged = False
     End If
@@ -121,17 +123,6 @@ Public Function closeCustomers( withFree Boolean )
     Free pBrowseCustomers
   End If
   Whenever Error Stop
-End Function
-
-Function askHim( ttl String, img String, msg String)
-  Menu ttl
-    Attributes (style="dialog",image= img,comment= msg)
-
-    Command "Yes"
-      Return True
-    Command "No"
-      Return False
-  End Menu
 End Function
 
 Function deleteCustomer( li_customer_id Like customers.customer_id )

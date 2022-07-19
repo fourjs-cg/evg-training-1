@@ -45,7 +45,7 @@ FUNCTION createDB()
         join_date DATE,
         img VARCHAR(100),
         customer_country INTEGER,
-        CONSTRAINT pk_customers_1 PRIMARY KEY(customer_id),
+        CONSTRAINT pkcustomers PRIMARY KEY(customer_id),
         CONSTRAINT fkcustomerscountries FOREIGN KEY(customer_country)
             REFERENCES countries(country_id))"
   INSERT INTO customers VALUES(0, "Jane Doe", Today, "https://4js.com/wp-content/uploads/2021/09/eric_byrnes_b.jpg", 0)

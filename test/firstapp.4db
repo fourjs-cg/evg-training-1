@@ -12,14 +12,19 @@
   </AGSettings>
   <ExtractionSettings/>
   <Table active="true" name="countries" status="A" uuid="db/table2">
-    <Column fglLength="4" fglType="2" name="country_id" notNull="false" order="1" status="A" uuid="db/column2"/>
+    <Column fglLength="4" fglType="2" name="country_id" notNull="false" order="1" status="A" uuid="db/column2">
+      <DynamicProperty name="label" value="Country Id"/>
+    </Column>
     <Column fglLength="100" fglType="201" name="country_name" notNull="false" order="2" status="A" uuid="db/column4"/>
     <Index indexColumns="country_id" indexConstraint="primaryKey" name="pkCountries" status="A" uuid="db/index2"/>
   </Table>
   <Table active="true" name="customers" status="A" uuid="db/table4">
     <Column fglLength="4" fglType="2" name="customer_id" notNull="false" order="1" status="A" uuid="db/column6"/>
     <Column fglLength="100" fglType="201" name="customer_name" notNull="false" order="2" status="A" uuid="db/column8"/>
-    <Column fglLength="4" fglType="7" name="join_date" notNull="false" order="3" status="A" uuid="db/column10"/>
+    <Column fglLength="4" fglType="7" name="join_date" notNull="false" order="3" status="A" uuid="db/column10">
+      <DynamicProperty name="label" value="Join date"/>
+      <DynamicProperty name="widget" value="DateEdit"/>
+    </Column>
     <Column fglLength="100" fglType="201" name="img" notNull="false" order="4" status="A" uuid="db/column12"/>
     <Column fglLength="4" fglType="2" name="customer_country" notNull="false" order="5" status="A" uuid="db/column14"/>
     <Index indexColumns="customer_id" indexConstraint="primaryKey" name="PK_customers_1" status="A" uuid="db/index4"/>
@@ -41,7 +46,7 @@
   <Views ActiveView="View-1" showLabels="true">
     <View Name="View-1">
       <Layout>
-        <![CDATA[AAAAAgAAABIAZABiAC8AdABhAGIAbABlADZAaQzM3YAAAEBqGZmrAAAAP7T987ZFoc8BAAAAEgBkAGIALwB0AGEAYgBsAGUANECFVmZ0oAAAQFLmZnMAAAA/sKPXCj1wpwEAAAASAGQAYgAvAHQAYQBiAGwAZQAyQGlZmaqAAABAVeZmdQAAAD+OuFHrhR68AQAAABIAZABiAC8AdABhAGIAbABlADhAf1mZroAAAEB2kzNCQAAAP7ZFocrAgxcB]]>
+        <![CDATA[AAAAAgAAABIAZABiAC8AdABhAGIAbABlADhAf1mZttwo8kB2kzNIRR62P7ZFocrAgxcBAAAAEgBkAGIALwB0AGEAYgBsAGUAMkBpWZmxQo9ZQFXmZnrXCjs/u6XjU/fO3wEAAAASAGQAYgAvAHQAYQBiAGwAZQA0QIVWZnpQo9VAUuZmeAo9bz+987ZFocrHAQAAABIAZABiAC8AdABhAGIAbABlADZAaQzM5C4UeUBqGZmx9cKNP7T987ZFoc8B]]>
       </Layout>
     </View>
   </Views>

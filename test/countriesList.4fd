@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm databaseName="firstapp" fileVersion="31400" gstVersion="31409" name="managedform" uid="{98e39d51-1b1f-4230-851b-cc20204d964c}">
+  <AGSettings>
+    <DynamicProperties version="2"/>
+  </AGSettings>
+  <Record masterTable="countries" name="sr_country" uid="{680cfc34-49a2-45f1-af6a-e2e0de3e1c1d}">
+    <RecordField colName="country_id" fieldIdRef="1" fieldType="TABLE_COLUMN" name="countries.country_id" sqlTabName="countries" uid="{c9baf6ac-9404-41c6-83eb-7b49d62eab7f}"/>
+    <RecordField colName="country_name" fieldIdRef="2" fieldType="TABLE_COLUMN" name="countries.country_name" sqlTabName="countries" uid="{2b6247fe-3f14-4cfc-927e-14e203f13d60}"/>
+  </Record>
+  <Form gridHeight="8" gridWidth="46" name="countries" text="Countries">
+    <Table gridHeight="6" gridWidth="44" name="firstapp1" posX="1" posY="1" totalRows="5">
+      <Edit colName="country_id" fieldId="1" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="11" name="countries.country_id" posX="1" posY="0" scroll="true" sqlTabName="countries" tabIndex="-1" widget="Edit">
+        <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
+      </Edit>
+      <Edit colName="country_name" fieldId="2" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="30" name="countries.country_name" posX="12" posY="0" scroll="true" sqlTabName="countries" tabIndex="-1" title="Country name" widget="Edit">
+        <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
+      </Edit>
+    </Table>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA2ADgAMABjAGYAYwAzADQALQA0ADkAYQAyAC0ANAA1AGYAMQAtAGEAZgA2AGEALQBlADIAZQAwAGQAZQAzAGUAMQBjADEAZAB9AAAAAAAAAAAAAAAAAAAAAD9gYk3S8an8AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

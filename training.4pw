@@ -66,6 +66,9 @@
   <PlatformList version="1.0"/>
   <Group id="111260526" label="test" language="Genero" targetDirectory="$(ProjectDir)/test">
     <Application binaryName="firstApp" id="93208818" label="firstApp">
+      <File filePath="test/countriesList.4fd"/>
+      <File excludeFromLink="true" filePath="test/countriesmgt.4gl"/>
+      <File filePath="test/countryForm.4fd"/>
       <File filePath="test/firstapp.4db"/>
       <File filePath="test/ftest.4fd"/>
       <File filePath="test/main.4gl"/>
@@ -74,6 +77,7 @@
       <File filePath="test/sqlCountries.4gl"/>
       <File excludeFromLink="true" filePath="test/sqlCustomers.4gl"/>
       <File filePath="test/sqlPlates.4gl"/>
+      <File excludeFromLink="true" filePath="test/utilities.4gl"/>
     </Application>
     <Application binaryName="Json" id="27024800" label="Json">
       <File filePath="test/frequentation-en-temps-reel-des-piscines.json"/>

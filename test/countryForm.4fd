@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm databaseName="firstapp" fileVersion="31400" gstVersion="31409" name="managedform" uid="{6641bc74-01fa-4b22-bd83-f63bee9fd048}">
+  <AGSettings>
+    <DynamicProperties version="2"/>
+  </AGSettings>
+  <Record masterTable="countries" name="record1" uid="{ff9ceea9-1e46-4d00-b748-f399bf67f811}">
+    <RecordField colName="country_id" fieldIdRef="1" fieldType="TABLE_COLUMN" name="countries.country_id" sqlTabName="countries" uid="{8a4f1e39-52a5-4368-8751-bd96bc8651e2}"/>
+    <RecordField colName="country_name" fieldIdRef="2" fieldType="TABLE_COLUMN" name="countries.country_name" sqlTabName="countries" uid="{40a7dd0c-65f4-4d84-a08a-884062046dfb}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="80" name="form" text="Form">
+    <Grid gridHeight="5" gridWidth="43" name="firstapp1" posX="6" posY="2">
+      <Label gridHeight="1" gridWidth="10" name="countries_country_id_label1" posX="1" posY="1">
+        <Initializer text="dbschema:countries.country_id/@label"/>
+      </Label>
+      <Edit colName="country_id" fieldId="1" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="11" name="countries.country_id" posX="12" posY="1" scroll="true" sqlTabName="countries" tabIndex="-1" widget="Edit">
+        <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
+      </Edit>
+      <Label gridHeight="1" gridWidth="10" name="countries_country_name_label1" posX="1" posY="2" text="Country name">
+        <Initializer text="dbschema:countries.country_name/@label"/>
+      </Label>
+      <Edit colName="country_name" fieldId="2" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="30" name="countries.country_name" posX="12" posY="2" scroll="true" sqlTabName="countries" tabIndex="-1" title="Country name" widget="Edit">
+        <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
+      </Edit>
+      <Button gridHeight="1" gridWidth="8" name="accept" posX="25" posY="3" tabIndex="-1" text="Ok"/>
+      <Button gridHeight="1" gridWidth="8" name="cancel" posX="34" posY="3" tabIndex="-1" text="Cancel"/>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBmAGYAOQBjAGUAZQBhADkALQAxAGUANAA2AC0ANABkADAAMAAtAGIANwA0ADgALQBmADMAOQA5AGIAZgA2ADcAZgA4ADEAMQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

@@ -2,6 +2,7 @@ Import FGL mySqlUtilities
 Import FGL sqlCustomers
 Import FGL sqlPlates
 Import FGL sqlCountries
+Import FGL countriesmgt
 
 Schema firstapp
 
@@ -37,6 +38,7 @@ Function navigateCustomers( nbl Integer )
   Define
     lr_customer tyCustomer,
     lr_oldCustomer tyCustomer,
+    li_countryId Like countries.country_id,
     la_plates Dynamic Array Of sqlPlates.tyNamedCustPlate,
     curl Integer,
     curCust Integer,
@@ -62,6 +64,10 @@ Function navigateCustomers( nbl Integer )
       On Change customer_name, join_date, customer_country
         Call Dialog.setActionActive("save",true)
         Let hasChanged = True
+        If lr_oldCustomer.* = lr_customer.* Then
+          Call Dialog.setActionActive("save",False)
+          Let hasChanged = False
+        End If
 
       On Action first
         Let hasChanged = sqlCustomers.updateCustomer( hasChanged, True, lr_customer, lr_oldCustomer.* )
@@ -101,9 +107,17 @@ Function navigateCustomers( nbl Integer )
 
       On Action revert
         Let lr_customer = lr_oldCustomer
+        Call Dialog.setActionActive("save",False)
+        Let hasChanged = False
 
       On Action refresh
         Call readCustomer(lr_customer, curCust, True) Returning lr_oldCustomer.*
+        Call Dialog.setActionActive("save",true)
+        Let hasChanged = True
+        If lr_oldCustomer.* = lr_customer.* Then
+          Call Dialog.setActionActive("save",False)
+          Let hasChanged = False
+        End If
 
       On Action delete
         If sqlCustomers.deleteCustomer(lr_customer.customer_id) Then
@@ -144,6 +158,22 @@ Function navigateCustomers( nbl Integer )
         Let Int_flag = Not deletePlate(la_plates[Dialog.getCurrentRow("sr_plate")].customer_id,
                                        la_plates[Dialog.getCurrentRow("sr_plate")].plate_id)
     End Display
+
+    On Action mgtcountries
+      Let li_countryId = countriesmgt.listCountries()
+      If li_countryId >= 0 Then
+        Let lr_customer.customer_country = li_countryId
+        If lr_customer.customer_country <> lr_oldCustomer.customer_country Then
+          Call Dialog.setActionActive("save",true)
+          Let hasChanged = True
+        Else
+          If lr_oldCustomer.* = lr_customer.* Then
+            Call Dialog.setActionActive("save",False)
+            Let hasChanged = False
+          End If
+        End If
+        Call fillCbCountry( ui.ComboBox.forName("customer_country") )
+      End If
 
     On Action close
       Exit Dialog
@@ -220,7 +250,7 @@ Function fillCbCountry( cbId ui.ComboBox )
     lr_country sqlCountries.tyCountry
 
   Call cbId.clear()
-  While readCountries( lr_country )
+  While readCountries( lr_country, Null )
     Call cbId.addItem(lr_country.country_id,lr_country.country_name)
   End While
 End Function

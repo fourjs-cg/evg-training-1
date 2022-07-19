@@ -27,7 +27,9 @@
           <Edit colName="customer_name" fieldId="1" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="12" name="customer_name" posX="26" posY="1" sqlTabName="customers" tabIndex="-1" title="edit1" widget="Edit"/>
           <Label gridHeight="1" gridWidth="5" name="lblJoinDate" posX="39" posY="1" text="Join Date"/>
           <DateEdit colName="join_date" fieldId="6" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="11" name="join_date" posX="45" posY="1" sqlTabName="customers" tabIndex="-1" title="edit1" widget="DateEdit"/>
+          <Label gridHeight="1" gridWidth="5" name="label1" posX="20" posY="2" text="Country"/>
           <ComboBox colName="customer_country" fieldId="9" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="12" initializer="fillCbCountry" items="" name="customer_country" notNull="true" posX="26" posY="2" sqlTabName="customers" tabIndex="-1" title="combobox1" widget="ComboBox"/>
+          <Button gridHeight="1" gridWidth="2" image="prop" name="mgtcountries" posX="39" posY="2" tabIndex="-1" text=""/>
           <Button gridHeight="1" gridWidth="2" image="first" name="first" posX="45" posY="2" tabIndex="-1" text=""/>
           <Button gridHeight="1" gridWidth="2" image="prev" name="previous" posX="48" posY="2" tabIndex="-1" text=""/>
           <Button gridHeight="1" gridWidth="2" image="next2" name="next" posX="51" posY="2" tabIndex="-1" text=""/>
@@ -43,6 +45,6 @@
     </VBox>
   </Form>
   <DiagramLayout>
-    <![CDATA[AAAAAgAAAEwAewBmADAAOQA1AGEAOAAzAGYALQA2ADAAOABjAC0ANAAxADMAZAAtAGEANAA5ADAALQAwADkAYQBmADQANgBhAGYANAAzAGYAYwB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQAAAEwAewA0ADUANgBkADUANwAzAGIALQA5AGQAMgA0AC0ANABlADQAMAAtADkAYgBiAGYALQBhADkAYgBjAGMAYgA2ADEAOQA4AGUAMAB9QGtMzQquFIq/8zMzXrhR9D90euFHrhR7AQ==]]>
+    <![CDATA[AAAAAgAAAEwAewA0ADUANgBkADUANwAzAGIALQA5AGQAMgA0AC0ANABlADQAMAAtADkAYgBiAGYALQBhADkAYgBjAGMAYgA2ADEAOQA4AGUAMAB9QGtMzRH1wqe/8zMzY9cKTD90euFHrhR7AQAAAEwAewBmADAAOQA1AGEAOAAzAGYALQA2ADAAOABjAC0ANAAxADMAZAAtAGEANAA5ADAALQAwADkAYQBmADQANgBhAGYANAAzAGYAYwB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQ==]]>
   </DiagramLayout>
 </ManagedForm>
