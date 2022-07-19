@@ -7,11 +7,20 @@ Import FGL countriesmgt
 Schema firstapp
 
 Main
+  Define
+    wId ui.Window
+
   Call ui.Interface.loadStyles("mystyle")
   Call createDB()
 
   Open Form f1 From "ftest"
   Display Form f1
+    Let wId = ui.Window.getCurrent()
+    If base.Application.getArgumentCount() > 0 Then
+      Call wId.setText(base.Application.getArgument(1))
+    Else
+      Call wId.setText("Customers")
+    End If
 
     Call browseCustomers()
 
@@ -26,7 +35,7 @@ Function browseCustomers()
     nbl Integer
 
   Call sqlCustomers.setQry("Select * From customers Order By customer_id")
-  Call initPlates()
+  Call initPlates(Null,Null,Null)
 
   Let nbl = mySqlUtilities.countLines("customers", Null)
   Call navigateCustomers( nbl )
@@ -44,7 +53,9 @@ Function navigateCustomers( nbl Integer )
     curCust Integer,
     cntPlate Integer = 0,
     hasChanged Boolean,
-    inputMode Char(1)
+    inputMode Char(1),
+    fId ui.Form,
+    isShown Boolean = False
 
   If nbl < 0 Then
     Error "Something went wrong"
@@ -131,7 +142,11 @@ Function navigateCustomers( nbl Integer )
     Display Array la_plates To sr_plate.* Attributes (count=cntPlate)
       On Fill Buffer
         Call la_plates.clear()
-        Call fillPlates( lr_customer.customer_id, la_plates, fgl_dialog_getbufferstart(), fgl_dialog_getbufferlength() )
+        Call sqlPlates.fillPlates( lr_customer.customer_id, la_plates, fgl_dialog_getbufferstart(), fgl_dialog_getbufferlength() )
+
+      On Sort
+        Call sqlPlates.endPlates()
+        Call sqlPlates.initPlates(Null,Dialog.getSortKey("sr_plate"),Dialog.isSortReverse("sr_plate"))
 
       On Append
         Let int_flag = False
@@ -174,6 +189,10 @@ Function navigateCustomers( nbl Integer )
         End If
         Call fillCbCountry( ui.ComboBox.forName("customer_country") )
       End If
+
+    On Action hideimg
+      Let fId = ui.Window.getCurrent().getForm()
+      Call fId.setFieldHidden("img",isShown := Not isShown )
 
     On Action close
       Exit Dialog

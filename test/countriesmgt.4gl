@@ -7,7 +7,7 @@ Function listCountries()
     la_countries Dynamic Array Of sqlCountries.tyCountry,
     lr_country sqlCountries.tyCountry
 
-  Open Window wCountries With Form "countriesList"
+  Open Window wCountries With Form "countriesList" Attributes (Style="main2")
 
     Let Int_Flag = False
     Display Array la_countries To sr_country.* Attributes (Unbuffered, Count=la_countries.getLength())

@@ -16,7 +16,26 @@
     <RecordField colName="plate_rate" fieldIdRef="4" fieldType="COLUMN_LIKE" name="plate_rate" sqlTabName="custplates" uid="{70c21fa3-812f-475a-91ca-b6e7315a6826}"/>
     <RecordField colName="plate_name" fieldIdRef="3" fieldType="COLUMN_LIKE" name="plate_name" sqlTabName="plates" uid="{eee2e18a-82b3-4d69-8054-2547538cf7e0}"/>
   </Record>
-  <Form gridHeight="25" gridWidth="80" name="form" text="Form">
+  <Form gridHeight="25" gridWidth="80" name="form" text="">
+    <ActionDefaultList name="actiondefaultlist1">
+      <ActionDefault acceleratorName="Control-r" comment="Revert what you tiped" image="undo_edit" name="revert" text="Revert"/>
+      <ActionDefault name="save" text="Save"/>
+      <ActionDefault name="delete" text="Delete"/>
+      <ActionDefault name="refresh" text="Refresh"/>
+      <ActionDefault acceleratorName="Control-Shift-i" image="fa-frown-o" name="hideimg" text="Hide"/>
+    </ActionDefaultList>
+    <TopMenu name="topmenu1">
+      <TopMenuGroup name="Edit" text="Edit">
+        <TopMenuCommand image="fa-bolt" name="revert"/>
+        <TopMenuCommand name="hideimg"/>
+      </TopMenuGroup>
+    </TopMenu>
+    <ToolBar name="toolbar1">
+      <ToolBarItem name="revert"/>
+      <ToolBarItem image="ok" name="save"/>
+      <ToolBarItem image="switch" name="refresh"/>
+      <ToolBarItem image="cancel2" name="delete"/>
+    </ToolBar>
     <VBox gridHeight="15" gridWidth="61" name="vbox1" posX="5" posY="0">
       <Group gridHeight="7" gridWidth="61" name="gcust" posX="0" posY="1" text="Customer">
         <Grid gridHeight="4" gridWidth="59" name="grid1" posX="1" posY="1">
@@ -45,6 +64,6 @@
     </VBox>
   </Form>
   <DiagramLayout>
-    <![CDATA[AAAAAgAAAEwAewA0ADUANgBkADUANwAzAGIALQA5AGQAMgA0AC0ANABlADQAMAAtADkAYgBiAGYALQBhADkAYgBjAGMAYgA2ADEAOQA4AGUAMAB9QGtMzRH1wqe/8zMzY9cKTD90euFHrhR7AQAAAEwAewBmADAAOQA1AGEAOAAzAGYALQA2ADAAOABjAC0ANAAxADMAZAAtAGEANAA5ADAALQAwADkAYQBmADQANgBhAGYANAAzAGYAYwB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQ==]]>
+    <![CDATA[AAAAAgAAAEwAewBmADAAOQA1AGEAOAAzAGYALQA2ADAAOABjAC0ANAAxADMAZAAtAGEANAA5ADAALQAwADkAYQBmADQANgBhAGYANAAzAGYAYwB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQAAAEwAewA0ADUANgBkADUANwAzAGIALQA5AGQAMgA0AC0ANABlADQAMAAtADkAYgBiAGYALQBhADkAYgBjAGMAYgA2ADEAOQA4AGUAMAB9QGtMzRk9cMa/8zMzaPXCpj90euFHrhR7AQ==]]>
   </DiagramLayout>
 </ManagedForm>

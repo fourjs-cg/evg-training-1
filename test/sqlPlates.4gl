@@ -67,11 +67,12 @@ Public Function updatePlate(Dlg ui.Dialog,
   Return isOk
 End Function
 
-Function initPlates()
+Function initPlates( wcl String, ordby String, ordway String )
   Define
     qry String
 
-  Let qry = "Select custplates.*,plates.plate_id,plates.plate_name From custplates Left Join plates On custplates.plate_id = plates.plate_id Where custplates.customer_id = ? order by plate_id"
+  Let qry = "Select custplates.*,plates.plate_id,plates.plate_name From custplates Left Join plates On custplates.plate_id = plates.plate_id Where custplates.customer_id = ?"
+  Let qry = qry," And "||wcl," order by "||NVL(ordby||" "||Iif(ordway,"ASC","DESC"),"plate_id")
   Prepare pReadPlates From qry
   Declare cReadPlates Scroll Cursor For pReadPlates
 End Function
@@ -101,6 +102,14 @@ Function fillPlates( customer_id Integer,
   End While
   Close cReadPlates
 
+End Function
+
+Function endPlates()
+  Whenever Error Continue
+  Close cReadPlates
+  Free cReadPlates
+  Free pReadPlates
+  Whenever Error Stop
 End Function
 
 Function plateGetKey( ls_plateName Like plates.plate_name )
