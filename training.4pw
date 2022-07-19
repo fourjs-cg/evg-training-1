@@ -66,6 +66,7 @@
   <PlatformList version="1.0"/>
   <Group id="111260526" label="test" language="Genero" targetDirectory="$(ProjectDir)/test">
     <Application binaryName="firstApp" id="93208818" label="firstApp">
+      <File filePath="test/firstapp.4db"/>
       <File filePath="test/ftest.4fd"/>
       <File filePath="test/main.4gl"/>
       <File excludeFromLink="true" filePath="test/mySqlUtilities.4gl"/>
