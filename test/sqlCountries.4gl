@@ -72,7 +72,8 @@ Function removeCountry( li_countryId Like countries.country_id, requiresValidati
     isOk Boolean = True
 
   If requiresValidation Then
-    Let isOk = utilities.askHim("Delete","question","Are you sure?")
+    Let isOk = utilities.askHim("Delete","question","Are you sure?",
+               '[{"btName":"yes","btLabel":"Yes","btActive":true,"btHidden":false,"btAnswer":"1"},{"btName":"no","btLabel":"No","btActive":true,"btHidden":false,"btAnswer":"0"}]')
   End If
   If isOk Then
     Try

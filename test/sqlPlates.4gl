@@ -22,6 +22,8 @@ Public Function deletePlate(li_customer_id Like custplates.customer_id,
        And plate_id = li_plate_id
   Catch
     Let isOk = False
+    --Display __LINE__," ",__FILE__
+    Call myErrorLog(__FILE__,"Remove plate Error: "||Sqlca.sqlcode||" "||SqlErrMessage)
     Error "Remove plate Error: ",Sqlca.sqlcode," ",SqlErrMessage
   End Try
 

@@ -26,6 +26,9 @@ FUNCTION createDB()
     s STRING
 
   CONNECT TO ":memory:+driver='dbmsqt'"
+  --CONNECT TO "firstapp" USER "user1" USING "password"
+  --DATABASE firstapp
+
   EXECUTE IMMEDIATE "Create Table countries (
         country_id Integer,
         country_name Varchar(100),

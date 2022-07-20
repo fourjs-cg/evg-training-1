@@ -30,7 +30,9 @@ Public Function updateCustomer( hasChanged Boolean,
     Let doIt = True
   End If
   If doIt And requestValidation Then
-    If Not utilities.askHim("Updates are here","question","Save your updates?") Then
+    If Not utilities.askHim("Updates are here","question","Save your updates?",
+               '[{"btName":"yes","btLabel":"Yes","btActive":true,"btHidden":false,"btAnswer":"1"},{"btName":"no","btLabel":"No","btActive":true,"btHidden":false,"btAnswer":"0"}]')
+    Then
       Let doIt = False
       Let hasChanged = False
     End If

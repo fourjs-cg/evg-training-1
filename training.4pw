@@ -79,6 +79,11 @@
       <File filePath="test/sqlPlates.4gl"/>
       <File excludeFromLink="true" filePath="test/utilities.4gl"/>
     </Application>
+    <Package binaryName="firstAppPack" distDirectory="$(ProjectDir)/Distrib/firstApp" id="136426496" label="firstAppPack" platform="ZIP" rootDirectory="$(ProjectDir)/Distrib">
+      <DynamicProperty name="packageId" value="firstapp"/>
+      <Directory includedFiles="*.42m,*.42f" label="CompiledFiles" sourceDirectory="$(ProjectDir)/test"/>
+      <Directory includedFiles="*.4st,*.4tb,*.4ad,*.4tm" label="ressources" sourceDirectory="$(ProjectDir)/test"/>
+    </Package>
     <Application binaryName="Json" id="27024800" label="Json">
       <File filePath="test/frequentation-en-temps-reel-des-piscines.json"/>
       <File filePath="test/jsonmain.4gl"/>

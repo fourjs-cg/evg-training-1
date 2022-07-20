@@ -3,18 +3,24 @@ Import FGL sqlCustomers
 Import FGL sqlPlates
 Import FGL sqlCountries
 Import FGL countriesmgt
+Import FGL utilities
+Import util
 
 Schema firstapp
+--Database firstapp
 
 Main
   Define
     wId ui.Window
+
+  Call startlog("firstapp.log")
 
   Call ui.Interface.loadStyles("mystyle")
   Call createDB()
 
   Open Form f1 From "ftest"
   Display Form f1
+
     Let wId = ui.Window.getCurrent()
     If base.Application.getArgumentCount() > 0 Then
       Call wId.setText(base.Application.getArgument(1))

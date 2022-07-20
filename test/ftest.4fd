@@ -36,26 +36,32 @@
       <ToolBarItem image="switch" name="refresh"/>
       <ToolBarItem image="cancel2" name="delete"/>
     </ToolBar>
-    <VBox gridHeight="15" gridWidth="61" name="vbox1" posX="5" posY="0">
-      <Group gridHeight="7" gridWidth="61" name="gcust" posX="0" posY="1" text="Customer">
-        <Grid gridHeight="4" gridWidth="59" name="grid1" posX="1" posY="1">
-          <FFImage autoScale="true" colName="img" fieldId="8" fieldType="COLUMN_LIKE" gridHeight="3" gridWidth="18" justify="center" name="img" posX="1" posY="0" sizePolicy="fixed" sqlTabName="customers" title="ffimage1" widget="FFImage"/>
-          <Label gridHeight="1" gridWidth="5" name="lblcustomerid" posX="20" posY="0" text="Customer Id"/>
-          <Edit colName="customer_id" fieldId="5" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="12" name="customer_id" noEntry="true" posX="26" posY="0" sqlTabName="customers" tabIndex="-1" title="edit1" widget="Edit"/>
-          <Label gridHeight="1" gridWidth="5" name="lblcustomername" posX="20" posY="1" text="Customer Name"/>
-          <Edit colName="customer_name" fieldId="1" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="12" name="customer_name" posX="26" posY="1" sqlTabName="customers" tabIndex="-1" title="edit1" widget="Edit"/>
-          <Label gridHeight="1" gridWidth="5" name="lblJoinDate" posX="39" posY="1" text="Join Date"/>
-          <DateEdit colName="join_date" fieldId="6" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="11" name="join_date" posX="45" posY="1" sqlTabName="customers" tabIndex="-1" title="edit1" widget="DateEdit"/>
-          <Label gridHeight="1" gridWidth="5" name="label1" posX="20" posY="2" text="Country"/>
-          <ComboBox colName="customer_country" fieldId="9" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="12" initializer="fillCbCountry" items="" name="customer_country" notNull="true" posX="26" posY="2" sqlTabName="customers" tabIndex="-1" title="combobox1" widget="ComboBox"/>
-          <Button gridHeight="1" gridWidth="2" image="prop" name="mgtcountries" posX="39" posY="2" tabIndex="-1" text=""/>
-          <Button gridHeight="1" gridWidth="2" image="first" name="first" posX="45" posY="2" tabIndex="-1" text=""/>
-          <Button gridHeight="1" gridWidth="2" image="prev" name="previous" posX="48" posY="2" tabIndex="-1" text=""/>
-          <Button gridHeight="1" gridWidth="2" image="next2" name="next" posX="51" posY="2" tabIndex="-1" text=""/>
-          <Button gridHeight="1" gridWidth="2" image="last" name="last" posX="54" posY="2" tabIndex="-1" text=""/>
-        </Grid>
+    <VBox gridHeight="16" gridWidth="64" name="vbox1" posX="5" posY="0">
+      <Group gridHeight="8" gridWidth="64" name="gcust" posX="0" posY="1" text="Customer">
+        <HBox gridHeight="3" gridWidth="60" name="hbox1" posX="1" posY="1">
+          <Grid gridHeight="3" gridWidth="19" name="grid2" posX="2" posY="0">
+            <FFImage autoScale="true" colName="img" fieldId="8" fieldType="COLUMN_LIKE" gridHeight="3" gridWidth="18" justify="center" name="img" posX="1" posY="0" sizePolicy="fixed" sqlTabName="customers" title="ffimage1" widget="FFImage"/>
+          </Grid>
+          <Grid gridHeight="3" gridWidth="19" name="grid3" posX="21" posY="0">
+            <Label gridHeight="1" gridWidth="5" name="lblcustomerid" posX="1" posY="0" text="Customer Id"/>
+            <Edit colName="customer_id" fieldId="5" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="12" name="customer_id" noEntry="true" posX="7" posY="0" sqlTabName="customers" tabIndex="-1" title="edit1" widget="Edit"/>
+            <Label gridHeight="1" gridWidth="5" name="lblcustomername" posX="1" posY="1" text="Customer Name"/>
+            <Edit colName="customer_name" fieldId="1" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="12" name="customer_name" posX="7" posY="1" sqlTabName="customers" tabIndex="-1" title="edit1" widget="Edit"/>
+            <Label gridHeight="1" gridWidth="5" name="label1" posX="1" posY="2" text="Country"/>
+            <ComboBox colName="customer_country" fieldId="9" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="12" initializer="fillCbCountry" items="" name="customer_country" notNull="true" posX="7" posY="2" sqlTabName="customers" tabIndex="-1" title="combobox1" widget="ComboBox"/>
+          </Grid>
+          <Grid gridHeight="3" gridWidth="18" name="grid1" posX="40" posY="0">
+            <Label gridHeight="1" gridWidth="5" name="lblJoinDate" posX="1" posY="1" text="Join Date"/>
+            <DateEdit colName="join_date" fieldId="6" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="11" name="join_date" posX="7" posY="1" sqlTabName="customers" tabIndex="-1" title="edit1" widget="DateEdit"/>
+            <Button gridHeight="1" gridWidth="2" image="prop" name="mgtcountries" posX="1" posY="2" tabIndex="-1" text=""/>
+            <Button gridHeight="1" gridWidth="2" image="first" name="first" posX="7" posY="2" tabIndex="-1" text=""/>
+            <Button gridHeight="1" gridWidth="2" image="prev" name="previous" posX="10" posY="2" tabIndex="-1" text=""/>
+            <Button gridHeight="1" gridWidth="2" image="next2" name="next" posX="13" posY="2" tabIndex="-1" text=""/>
+            <Button gridHeight="1" gridWidth="2" image="last" name="last" posX="16" posY="2" tabIndex="-1" text=""/>
+          </Grid>
+        </HBox>
       </Group>
-      <Table gridHeight="6" gridWidth="61" name="table1" posX="0" posY="8" totalRows="5">
+      <Table gridHeight="6" gridWidth="64" name="table1" posX="0" posY="9" totalRows="5">
         <Phantom colName="customer_id" fieldId="2" fieldType="COLUMN_LIKE" name="customer_id1" sqlTabName="custplates" widget="Phantom"/>
         <Edit colName="plate_id" fieldId="7" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="8" name="plate_id" posX="0" posY="0" sqlTabName="custplates" tabIndex="-1" title="Plate Id" widget="Edit"/>
         <Edit colName="plate_name" completer="true" fieldId="3" fieldType="COLUMN_LIKE" gridHeight="1" gridWidth="8" name="plate_name" posX="8" posY="0" sqlTabName="plates" tabIndex="-1" title="Name" widget="Edit"/>
@@ -64,6 +70,6 @@
     </VBox>
   </Form>
   <DiagramLayout>
-    <![CDATA[AAAAAgAAAEwAewBmADAAOQA1AGEAOAAzAGYALQA2ADAAOABjAC0ANAAxADMAZAAtAGEANAA5ADAALQAwADkAYQBmADQANgBhAGYANAAzAGYAYwB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQAAAEwAewA0ADUANgBkADUANwAzAGIALQA5AGQAMgA0AC0ANABlADQAMAAtADkAYgBiAGYALQBhADkAYgBjAGMAYgA2ADEAOQA4AGUAMAB9QGtMzRk9cMa/8zMzaPXCpj90euFHrhR7AQ==]]>
+    <![CDATA[AAAAAgAAAEwAewA0ADUANgBkADUANwAzAGIALQA5AGQAMgA0AC0ANABlADQAMAAtADkAYgBiAGYALQBhADkAYgBjAGMAYgA2ADEAOQA4AGUAMAB9QGtMzSCFHui/8zMzbhR7AT90euFHrhR7AQAAAEwAewBmADAAOQA1AGEAOAAzAGYALQA2ADAAOABjAC0ANAAxADMAZAAtAGEANAA5ADAALQAwADkAYQBmADQANgBhAGYANAAzAGYAYwB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQ==]]>
   </DiagramLayout>
 </ManagedForm>
