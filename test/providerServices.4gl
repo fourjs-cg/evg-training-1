@@ -46,7 +46,7 @@ Type
     END RECORD,
     record_timestamp STRING
 END RECORD,
-  tyPoolFrequentation DYNAMIC ARRAY OF RECORD
+  tyPF RECORD
     datasetid STRING,
     recordid STRING,
     fields RECORD
@@ -61,6 +61,7 @@ END RECORD,
     END RECORD,
     record_timestamp STRING
 END RECORD,
+  tyPoolFrequentation DYNAMIC ARRAY OF tyPF,
   tyPoolFreq Record
     name String,
     address String,
@@ -100,4 +101,75 @@ Public Function nbPools()
   Returns Integer
 
   Return pools.getLength()
+End Function
+
+Public Function getPoolName( poolId Integer Attributes (WSQuery,WSName="id") )
+  Attributes (WSGet,
+              WSPath="/pools/name",
+              WSDescription="Returns the name of the pool")
+  Returns String
+
+  Return pools[poolId].fields.name
+End Function
+
+Public Function getPoolIdsurfs( poolId Integer Attributes (WSQuery,WSName="id") )
+  Attributes (WSGet,
+              WSPath="/pools/idsurfs",
+              WSDescription="Returns the id of the pool")
+  Returns String
+
+  Return pools[poolId].fields.idsurfs
+End Function
+
+Public Function postPoolFreq( jsonNewFreq String )
+  Attributes (WSPost,
+              WSPath="/pools/addfreq",
+              WSDescription="Add a pool frequentation")
+  Returns Boolean
+
+  Define
+    poolFreq tyPF,
+    jsonObjId util.JSONObject
+
+  Display "Server ",jsonNewFreq
+  Let jsonObjId = util.JSONObject.parse(jsonNewFreq)
+  Call jsonObjId.toFGL(poolFreq)
+
+  Call poolFrequentation.appendElement()
+  Let poolFrequentation[poolFrequentation.getLength()] = poolFreq
+
+  Return true
+End Function
+
+Public Function isPoolOpen( poolId Integer Attributes (WSParam) )
+  Attributes (WSGet,
+              WSPath="/pools/{poolId}/isopen",
+              WSDescription="Returns the name of the pool")
+  Returns Boolean
+
+  Define
+    isOpen Boolean
+
+  Let isOpen = poolFrequentation[searchRow( pools[poolId].fields.idsurfs )].fields.isopen
+  Return NVL(isOpen,False)
+End Function
+
+Function searchRow( keyval String )
+         Returns Integer
+
+  Define
+    i Integer
+
+  For i=1 To poolFrequentation.getLength()
+    If poolFrequentation[i].fields.sigid = keyval Then
+      Exit For
+    End If
+  End For
+  If i=poolFrequentation.getLength() 
+     And poolFrequentation[i].fields.sigid <> keyval 
+  Then
+    Let i = 0
+  End If
+
+  Return i
 End Function

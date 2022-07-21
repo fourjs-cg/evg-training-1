@@ -95,7 +95,7 @@
     <Application binaryName="Consumer" id="45911370" label="Consumer">
       <File filePath="test/consumerMain.4gl"/>
     </Application>
-    <Application binaryName="Provider" id="487003992" label="Provider">
+    <Application binaryName="Provider" environment="value:FGLAPPSERVER=8099" id="487003992" label="Provider">
       <File filePath="test/providerMain.4gl"/>
       <File excludeFromLink="true" filePath="test/providerServices.4gl"/>
     </Application>
