@@ -198,7 +198,7 @@ Function navigateCustomers( nbl Integer )
 
     On Action hideimg
       Let fId = ui.Window.getCurrent().getForm()
-      Call fId.setFieldHidden("img",isShown := Not isShown )
+      Call fId.setElementHidden("imggrid",isShown := Not isShown )
 
     On Action close
       Exit Dialog

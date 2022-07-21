@@ -39,8 +39,8 @@
     <VBox gridHeight="16" gridWidth="64" name="vbox1" posX="5" posY="0">
       <Group gridHeight="8" gridWidth="64" name="gcust" posX="0" posY="1" text="Customer">
         <HBox gridHeight="3" gridWidth="60" name="hbox1" posX="1" posY="1">
-          <Grid gridHeight="3" gridWidth="19" name="grid2" posX="2" posY="0">
-            <FFImage autoScale="true" colName="img" fieldId="8" fieldType="COLUMN_LIKE" gridHeight="3" gridWidth="18" justify="center" name="img" posX="1" posY="0" sizePolicy="fixed" sqlTabName="customers" title="ffimage1" widget="FFImage"/>
+          <Grid gridHeight="3" gridWidth="19" name="imggrid" posX="2" posY="0">
+            <FFImage autoScale="true" colName="img" fieldId="8" fieldType="COLUMN_LIKE" gridHeight="3" gridWidth="18" justify="center" name="img" posX="1" posY="0" sizePolicy="fixed" sqlTabName="customers" stretch="both" title="ffimage1" widget="FFImage"/>
           </Grid>
           <Grid gridHeight="3" gridWidth="19" name="grid3" posX="21" posY="0">
             <Label gridHeight="1" gridWidth="5" name="lblcustomerid" posX="1" posY="0" text="Customer Id"/>
@@ -70,6 +70,6 @@
     </VBox>
   </Form>
   <DiagramLayout>
-    <![CDATA[AAAAAgAAAEwAewA0ADUANgBkADUANwAzAGIALQA5AGQAMgA0AC0ANABlADQAMAAtADkAYgBiAGYALQBhADkAYgBjAGMAYgA2ADEAOQA4AGUAMAB9QGtMzSCFHui/8zMzbhR7AT90euFHrhR7AQAAAEwAewBmADAAOQA1AGEAOAAzAGYALQA2ADAAOABjAC0ANAAxADMAZAAtAGEANAA5ADAALQAwADkAYQBmADQANgBhAGYANAAzAGYAYwB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQ==]]>
+    <![CDATA[AAAAAgAAAEwAewBmADAAOQA1AGEAOAAzAGYALQA2ADAAOABjAC0ANAAxADMAZAAtAGEANAA5ADAALQAwADkAYQBmADQANgBhAGYANAAzAGYAYwB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQAAAEwAewA0ADUANgBkADUANwAzAGIALQA5AGQAMgA0AC0ANABlADQAMAAtADkAYgBiAGYALQBhADkAYgBjAGMAYgA2ADEAOQA4AGUAMAB9QGtMzSfMzQu/8zMzczMzXT90euFHrhR7AQ==]]>
   </DiagramLayout>
 </ManagedForm>

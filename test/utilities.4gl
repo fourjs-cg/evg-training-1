@@ -26,10 +26,6 @@ Function askHim( ttl String, img String, msg String, JsonStr String) Returns Boo
     Let bts[i].btHidden = True
   End For
 
-  Display JsonStr
-  Display "*",bts[1].btName,"*"
-  Display bts[2].*
-
   Menu ttl
     Attributes (style="dialog",image= img,comment= msg)
 
