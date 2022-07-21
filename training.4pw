@@ -91,4 +91,13 @@
       <File filePath="test/pools.4fd"/>
     </Application>
   </Group>
+  <Group id="243005616" label="WebServices" language="Genero" targetDirectory="$(ProjectDir)/test">
+    <Application binaryName="Consumer" id="45911370" label="Consumer">
+      <File filePath="test/consumerMain.4gl"/>
+    </Application>
+    <Application binaryName="Provider" id="487003992" label="Provider">
+      <File filePath="test/providerMain.4gl"/>
+      <File excludeFromLink="true" filePath="test/providerServices.4gl"/>
+    </Application>
+  </Group>
 </Project>
