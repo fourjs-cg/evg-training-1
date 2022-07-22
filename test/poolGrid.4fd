@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="31400" gstVersion="31409" name="managedform" uid="{fac61bb8-3214-4410-b1e1-23c2e02c5d04}">
+  <AGSettings>
+    <DynamicProperties version="2"/>
+  </AGSettings>
+  <Record name="srpool" uid="{db26e18c-d836-483a-962e-252d9a58e8f2}">
+    <RecordField fieldIdRef="1" name="imageurl" uid="{09a01c31-c79c-4b3b-8bc9-18f7e5ace7ab}"/>
+    <RecordField fieldIdRef="2" name="name" uid="{932c4cc2-764d-4e2d-92ab-26d23a404808}"/>
+    <RecordField fieldIdRef="3" length="100" name="isopen" uid="{6f2db691-f987-4ad7-a039-1d1a3e4d891c}"/>
+    <RecordField fieldIdRef="4" name="occupation" sqlType="INTEGER" uid="{233db345-8c9a-494d-af93-a47d039da1ff}"/>
+  </Record>
+  <Form gridHeight="10" gridWidth="36" name="form" text="Form">
+    <Grid gridHeight="7" gridWidth="32" name="grid1" posX="1" posY="1">
+      <FFImage autoScale="true" fieldId="1" gridHeight="3" gridWidth="20" name="imageurl" posX="1" posY="1" sizePolicy="fixed" stretch="both" title="ffimage1" unitHeight="pixels" unitWidth="pixels" widget="FFImage"/>
+      <FFImage fieldId="3" gridHeight="4" gridWidth="8" length="100" name="isopen" posX="22" posY="1" title="Is Open" widget="FFImage"/>
+      <Edit fieldId="2" gridHeight="1" gridWidth="20" name="name" posX="1" posY="4" tabIndex="-1" title="Pool Name" widget="Edit"/>
+      <Label gridHeight="1" gridWidth="9" name="label1" posX="1" posY="5" text="Is there a crowd?"/>
+      <Edit fieldId="4" gridHeight="1" gridWidth="10" name="occupation" posX="11" posY="5" sqlType="INTEGER" tabIndex="-1" title="Nb Swimmers" widget="Edit"/>
+      <Button gridHeight="1" gridWidth="3" image="fa-chevron-circle-left" name="previous" posX="22" posY="5" tabIndex="-1" text=""/>
+      <Button gridHeight="1" gridWidth="3" image="fa-chevron-circle-right" name="next" posX="27" posY="5" tabIndex="-1" text=""/>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBkAGIAMgA2AGUAMQA4AGMALQBkADgAMwA2AC0ANAA4ADMAYQAtADkANgAyAGUALQAyADUAMgBkADkAYQA1ADgAZQA4AGYAMgB9AAAAAAAAAAAAAAAAAAAAAD9ok3S8an76AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

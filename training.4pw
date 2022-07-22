@@ -94,6 +94,7 @@
   <Group id="243005616" label="WebServices" language="Genero" targetDirectory="$(ProjectDir)/test">
     <Application binaryName="Consumer" id="45911370" label="Consumer">
       <File filePath="test/consumerMain.4gl"/>
+      <File filePath="test/poolGrid.4fd"/>
     </Application>
     <Application binaryName="Provider" environment="value:FGLAPPSERVER=8099" id="487003992" label="Provider">
       <File filePath="test/providerMain.4gl"/>

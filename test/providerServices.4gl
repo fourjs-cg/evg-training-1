@@ -94,6 +94,13 @@ Public Function init()
   Call util.JSON.parse( jsonStr, poolFrequentation )
 End Function
 
+  --http://127.0.0.1:8099/poolService/pools/count
+  --http://127.0.0.1:8099/poolService/pools/name?id=%1",poolNo
+  --http://127.0.0.1:8099/poolService/pools/image?id=%1",poolNo
+  --http://127.0.0.1:8099/poolService/pools/%1/isopen",poolNo
+  --http://127.0.0.1:8099/poolService/pools/%1/crowd",poolNo
+
+
 Public Function nbPools()
   Attributes (WSGet,
               WSPath="/pools/count",
@@ -112,46 +119,68 @@ Public Function getPoolName( poolId Integer Attributes (WSQuery,WSName="id") )
   Return pools[poolId].fields.name
 End Function
 
-Public Function getPoolIdsurfs( poolId Integer Attributes (WSQuery,WSName="id") )
+Public Function getPoolImage( poolId Integer Attributes (WSQuery,WSName="id") )
   Attributes (WSGet,
-              WSPath="/pools/idsurfs",
-              WSDescription="Returns the id of the pool")
+              WSPath="/pools/image",
+              WSDescription="Returns the image of the pool")
   Returns String
 
-  Return pools[poolId].fields.idsurfs
+  Return pools[poolId].fields.imageurl
 End Function
 
-Public Function postPoolFreq( jsonNewFreq String )
-  Attributes (WSPost,
-              WSPath="/pools/addfreq",
-              WSDescription="Add a pool frequentation")
-  Returns Boolean
+--Public Function getPoolIdsurfs( poolId Integer Attributes (WSQuery,WSName="id") )
+--  Attributes (WSGet,
+--              WSPath="/pools/idsurfs",
+--              WSDescription="Returns the id of the pool")
+--  Returns String
+--
+--  Return pools[poolId].fields.idsurfs
+--End Function
 
-  Define
-    poolFreq tyPF,
-    jsonObjId util.JSONObject
-
-  Display "Server ",jsonNewFreq
-  Let jsonObjId = util.JSONObject.parse(jsonNewFreq)
-  Call jsonObjId.toFGL(poolFreq)
-
-  Call poolFrequentation.appendElement()
-  Let poolFrequentation[poolFrequentation.getLength()] = poolFreq
-
-  Return true
-End Function
+--Public Function postPoolFreq( jsonNewFreq String )
+--  Attributes (WSPost,
+--              WSPath="/pools/addfreq",
+--              WSDescription="Add a pool frequentation")
+--  Returns Boolean
+--
+--  Define
+--    poolFreq tyPF,
+--    jsonObjId util.JSONObject
+--
+--  Display "Server ",jsonNewFreq
+--  Let jsonObjId = util.JSONObject.parse(jsonNewFreq)
+--  Call jsonObjId.toFGL(poolFreq)
+--
+--  Call poolFrequentation.appendElement()
+--  Let poolFrequentation[poolFrequentation.getLength()] = poolFreq
+--
+--  Return true
+--End Function
 
 Public Function isPoolOpen( poolId Integer Attributes (WSParam) )
   Attributes (WSGet,
               WSPath="/pools/{poolId}/isopen",
               WSDescription="Returns the name of the pool")
-  Returns Boolean
+  Returns smallInt
 
   Define
     isOpen Boolean
 
   Let isOpen = poolFrequentation[searchRow( pools[poolId].fields.idsurfs )].fields.isopen
-  Return NVL(isOpen,False)
+  Return NVL(isOpen,2)
+End Function
+
+Public Function isPoolCrowd( poolId Integer Attributes (WSParam) )
+  Attributes (WSGet,
+              WSPath="/pools/{poolId}/crowd",
+              WSDescription="Returns the name of the pool")
+  Returns Integer
+
+  Define
+    crowd Integer
+
+  Let crowd = poolFrequentation[searchRow( pools[poolId].fields.idsurfs )].fields.occupation
+  Return NVL(crowd,0)
 End Function
 
 Function searchRow( keyval String )
